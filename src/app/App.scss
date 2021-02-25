@@ -1,0 +1,25 @@
+@import "../mixin/flexbox.scss";
+
+.app {
+
+}
+
+.header{
+    background-color: aquamarine;
+    .title{
+        @include flexbox(column,center,center);
+    }
+}
+
+.main {
+    @include flexbox(row,space-between,center);
+    // position: relative;
+    .active-tab{
+        background-color: coral;
+        width: 400px;
+        // height: 400px;
+    }
+    
+}
+
+

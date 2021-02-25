@@ -1,0 +1,6 @@
+@import "../../mixin/flexbox.scss";
+
+.favorites{
+    @include flexbox(column,flex-start,flex-start);
+    margin-left: 50px;
+}
