@@ -1,15 +1,10 @@
-// import React, {useState, useEffect} from 'react';
-// import { About } from './About';
-// import { Education } from './Education';
-// import { Experience } from './Experience';
-// import { Projects } from './Projects';
-// import { Skills } from './Skills';
-import { Link } from 'react-router-dom'
 import React, { useState } from 'react'
+import {FormattedMessage} from 'react-intl';
+import { Link } from 'react-router-dom'
 
 
 import './navbar.scss'
-import {useCounterContext} from '../../app/counterContext'
+import {useCounterContext} from '../../context/counterContext'
 
 export const Navbar = () => {
   const {incrementAbout, incrementSkills, incrementEducation, incrementExperience , incrementProjects,

@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect,useState } from 'react'; 
 
 import './favorites.scss';
-import { useCounterContext } from '../../app/counterContext'
+import { useCounterContext } from '../../context/counterContext'
 
 export const Favorites = () => {
   const { counterAbout,counterSkills,counterEducation,counterExperince,counterProjects,object } = useCounterContext()
