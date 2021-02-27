@@ -1,56 +1,81 @@
-import React, { useReducer, useContext, createContext } from "react";
+import React, {useState, useContext, createContext} from 'react'
 
-const LoadingStateContext = createContext();
-const LoadingDispatchContext = createContext();
+const CounterContext = createContext(0)
 
-const initialState = {
-  count: 0
-};
+export const CounterProvider = ({ children}) => {
+    const [counterAbout, setCounterAbout] =useState(0)
+    const [counterSkills, setCounterSkills] =useState(0)
+    const [counterEducation, setCounterEducation] =useState(0)
+    const [counterExperince, setCounterExperience] =useState(0)
+    const [counterProjects, setCounterProjects] =useState(0)
 
-function counterReducer(state, action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return { ...state, count: state.count + 1 };
-    case "DECREMENT":
-      return { ...state, count: state.count - 1 };
-    default:
-      return state;
-  }
+    const [activeAbout, setActiveAbout] = useState(false); 
+    const [activeSkills, setActiveSkills] = useState(false);
+    const [activeEducation, setActiveEducation] = useState(false);
+    const [activeExperience, setActiveExperience] = useState(false);
+    const [activeProjects, setActiveProjects] = useState(false);
+
+    const incrementAbout = () => {
+        setCounterAbout(counterAbout + 1) 
+        setActiveAbout(true)
+        setActiveSkills(false)
+        setActiveEducation(false)
+        setActiveExperience(false)
+        setActiveProjects(false)
+    }
+    const incrementSkills = () => {
+        setCounterSkills(counterSkills + 1)
+        setActiveSkills(true)
+        setActiveAbout(false)
+        setActiveEducation(false)
+        setActiveExperience(false)
+        setActiveProjects(false)
+        
+    }
+    const incrementEducation = () => {
+        setCounterEducation(counterEducation + 1)
+        setActiveEducation(true)
+        setActiveAbout(false) 
+        setActiveSkills(false)
+        setActiveExperience(false)
+        setActiveProjects(false)
+    }
+    const incrementExperience = () => {
+        setCounterExperience(counterExperince + 1)
+        setActiveExperience(true)
+        setActiveAbout(false)
+        setActiveSkills(false)
+        setActiveEducation(false)
+        setActiveProjects(false)
+    }
+    const incrementProjects = () => {
+        setCounterProjects(counterProjects + 1)
+        setActiveProjects(true)
+        setActiveAbout(false)
+        setActiveSkills(false)
+        setActiveEducation(false)
+        setActiveExperience(false)
+    }
+    
+    const object =  {
+       about: counterAbout,
+       skills: counterSkills, 
+       projects: counterEducation, 
+       education: counterExperince, 
+       experience: counterProjects 
+    }
+
+    return (
+        <CounterContext.Provider value={{ 
+        counterAbout,counterSkills,counterEducation,counterExperince,counterProjects,
+        incrementAbout, incrementSkills, incrementEducation, incrementExperience , incrementProjects,
+        object,
+        activeAbout, activeSkills, activeEducation, activeExperience,activeProjects,
+        setActiveAbout,setActiveSkills,setActiveEducation,setActiveExperience,setActiveProjects
+        }}>
+            {children}
+        </CounterContext.Provider>
+    )
 }
 
-function Provider({ children }) {
-  const [state, dispatch] = useReducer(counterReducer, initialState);
-
-  const increment = () => dispatch({ type: "INCREMENT" });
-  const decrement = () => dispatch({ type: "DECREMENT" });
-
-  const actions = { increment, decrement };
-
-  return (
-    <LoadingStateContext.Provider value={state}>
-      <LoadingDispatchContext.Provider value={actions}>
-        {children}
-      </LoadingDispatchContext.Provider>
-    </LoadingStateContext.Provider>
-  );
-}
-
-function useLoadingState() {
-  const context = useContext(LoadingStateContext);
-  if (context === undefined)
-    throw Error('"useErrorState" should be used under "ErrorProvider"!');
-
-  return context;
-}
-
-function useLoadingActions() {
-  const context = useContext(LoadingDispatchContext);
-  if (context === undefined)
-    throw Error(
-      '"useErrorActions" should be used under "ErrorDispatchContext"!'
-    );
-
-  return context;
-}
-
-export { Provider, useLoadingState, useLoadingActions };
+export const useCounterContext = () =>useContext(CounterContext)
