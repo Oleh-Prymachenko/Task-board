@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Sen";
+  font-family: "Sen-bold";
+  font-family: "Sen-extrabold";
+  src: local("Sen"), url(../fonts/Sen-Regular.ttf) format("truetype");
+  src: local("Sen-bold"), url(../fonts/Sen-Bold.ttf) format("truetype");
+  src: local("Sen-extrabold"),
+    url(../fonts/Sen-ExtraBold.ttf) format("truetype");
+}
+
+@mixin font($font-family, $font-size, $font-weight) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-style: normal;
+}

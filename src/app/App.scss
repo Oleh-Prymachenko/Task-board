@@ -1,28 +1,170 @@
 @import "../mixin/flexbox.scss";
+@import "../mixin/font.scss";
+@import "../mixin/size.scss";
 
-.app {
+@media (min-width: 320px) {
+  * {
+    box-sizing: border-box;
+  }
 
-}
+  body {
+    margin: 0;
+  }
 
-.header{
-    background-color: aquamarine;
-    .title{
-        @include flexbox(column,center,center);
+  .app {
+    @include font("Sen", 5px, normal);
+    @include flexbox(column, none, none);
+  }
+
+  .header {
+    background-color: #282567;
+    .bio {
+      @include flexbox(row, space-around, center);
+      .fullname {
+        h2 {
+          @include font("Sen", 11px, normal);
+          color: #00caa1;
+        }
+        h1 {
+          @include font("Sen-bold", 20px, bold);
+          line-height: 8px;
+          color: #ffe100;
+        }
+      }
+      .photo {
+        @include size(80px, 80px);
+      }
     }
-}
+  }
 
-.main {
-    @include flexbox(row,space-between,center);
-    // position: relative;
-    .active-tab{
-        background-color: coral;
-        width: 400px;
-        // height: 400px;
+  .main {
+    @include flexbox(row, space-evenly, none);
+    background-color: #79244c;
+    .main-left {
+      background-color: #79244c;
+      padding: 5%;
     }
-    
+    .main-right {
+      padding: 5%;
+      background-color: #282567;
+      color: #ffffff;
+      @include flexbox(row, space-evenly, center);
+    }
+  }
 }
 
+@media (min-width: 576px) {
+  .app {
+    font-size: 7px;
+  }
 
-.p {
-    color:blue;
+  .header {
+    .bio {
+      .fullname {
+        h2 {
+          font-size: 15px;
+        }
+        h1 {
+          font-size: 26px;
+        }
+      }
+      .photo {
+        @include size(100px, 100px);
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  * {
+    box-sizing: border-box;
+  }
+  .app {
+    font-size: 8px;
+  }
+
+  .header {
+    .bio {
+      .fullname {
+        h2 {
+          font-size: 20px;
+        }
+        h1 {
+          font-size: 35px;
+        }
+      }
+      .photo {
+        @include size(130px, 130px);
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .app {
+    font-size: 10px;
+  }
+
+  .header {
+    .bio {
+      .fullname {
+        h2 {
+          font-size: 30px;
+        }
+        h1 {
+          font-size: 50px;
+          line-height: 8px;
+        }
+      }
+      .photo {
+        @include size(160px, 160px);
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .app {
+    font-size: 14px;
+  }
+
+  .header {
+    .bio {
+      .fullname {
+        h2 {
+          font-size: 36px;
+        }
+        h1 {
+          font-size: 64px;
+          line-height: 8px;
+        }
+      }
+      .photo {
+        @include size(200px, 200px);
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .app {
+    font-size: 16px;
+  }
+
+  .header {
+    .bio {
+      .fullname {
+        h2 {
+          font-size: 40px;
+        }
+        h1 {
+          font-size: 70px;
+          line-height: 12px;
+        }
+      }
+      .photo {
+        @include size(250px, 250px);
+      }
+    }
+  }
 }

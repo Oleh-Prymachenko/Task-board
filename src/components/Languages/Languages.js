@@ -1,19 +1,39 @@
-import React,{useContext,useEffect} from 'react'
+import React, { useContext, useEffect } from "react";
+import { FormattedMessage } from "react-intl";
 
-import './languages.scss';
+import "./languages.scss";
 import { LangContext } from "../../context/langContext";
 
-export const Languages =  () => {
+export const Languages = () => {
+  const F = FormattedMessage;
   const languageSwitchContext = useContext(LangContext);
 
   useEffect(() => {
     languageSwitchContext.defaultLanguage();
-  },[])
-    return(
-        <div className="languages">
-          <button value="eng" onClick={languageSwitchContext.chooseLanguage}>eng</button>
-          <button value="rus" onClick={languageSwitchContext.chooseLanguage}>ukr</button>
-          <button value="ukr" onClick={languageSwitchContext.chooseLanguage}>rus</button>
-        </div>
-    );
-}
+  }, []);
+  return (
+    <div className="languages">
+      <button
+        value="eng"
+        className="super"
+        onClick={languageSwitchContext.chooseLanguage}
+      >
+        <F id="eng" />
+      </button>
+      <button
+        value="rus"
+        className="super"
+        onClick={languageSwitchContext.chooseLanguage}
+      >
+        <F id="ukr" />
+      </button>
+      <button
+        value="ukr"
+        className="super"
+        onClick={languageSwitchContext.chooseLanguage}
+      >
+        <F id="rus" />
+      </button>
+    </div>
+  );
+};

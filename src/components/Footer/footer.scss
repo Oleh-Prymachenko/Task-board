@@ -1,15 +1,121 @@
-footer {
-    .footer-social{
-         position: absolute;
-         bottom: 5%;
-         left: 5%;
-         // display: inline;
+@import "../../mixin/flexbox.scss";
+@import "../../mixin/size.scss";
+@import "../../mixin/font.scss";
+
+@media (min-width: 320px) {
+  footer {
+    min-height: 20px;
+    background-color: #551030;
+    @include flexbox(row, space-evenly, center);
+    .contact {
+      a {
+        .git {
+          @include size(10px, 10px);
+        }
+        .linkidin {
+          @include size(10px, 10px);
+        }
+      }
+      .email {
+        @include font("Sen-bold", 5px, normal);
+        text-transform: uppercase;
+        color: rgb(230, 230, 109);
+      }
     }
-    .footer-private{
-         position: absolute;
-         right: 5%;
-         bottom: 5%;
-         display: inline;
+  }
+}
+
+@media (min-width: 576px) {
+  footer {
+    min-height: 40px;
+    .contact {
+      a {
+        .git {
+          @include size(20px, 20px);
+        }
+        .linkidin {
+          @include size(20px, 20px);
+        }
+      }
+      .email {
+        font-size: 7px;
+      }
     }
- }
- 
+  }
+}
+
+@media (min-width: 768px) {
+  footer {
+    min-height: 60px;
+    .contact {
+      a {
+        .git {
+          @include size(30px, 30px);
+        }
+        .linkidin {
+          @include size(30px, 30px);
+        }
+      }
+      .email {
+        font-size: 8px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  footer {
+    min-height: 80px;
+    .contact {
+      a {
+        .git {
+          @include size(45px, 45px);
+        }
+        .linkidin {
+          @include size(45px, 45px);
+        }
+      }
+      .email {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  footer {
+    min-height: 100px;
+    .contact {
+      a {
+        .git {
+          @include size(50px, 50px);
+        }
+        .linkidin {
+          @include size(50px, 50px);
+        }
+      }
+      .email {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  footer {
+    min-height: 130px;
+    .contact {
+      a {
+        .git {
+          @include size(60px, 60px);
+        }
+        .linkidin {
+          @include size(60px, 60px);
+        }
+      }
+      .email {
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -1,57 +1,139 @@
-import React from 'react'
-import { useEffect,useState } from 'react'; 
+import React from "react";
+import { useEffect, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
-import './favorites.scss';
-import { useCounterContext } from '../../context/counterContext'
+import "./favorites.scss";
+import { useCounterContext } from "../../context/counterContext";
 
 export const Favorites = () => {
-  const { counterAbout,counterSkills,counterEducation,counterExperince,counterProjects,object } = useCounterContext()
-  const [maxPoints, setMaxPoints] = useState(0)
-  const [prefer, setPrefer] = useState('');
+  const F = FormattedMessage;
+  const {
+    counterAbout,
+    counterSkills,
+    counterEducation,
+    counterExperince,
+    counterProjects,
+    tabsObject,
+  } = useCounterContext();
+  const [maxPoints, setMaxPoints] = useState(0);
+  const [prefer, setPrefer] = useState("");
 
-  useEffect(()=> {
-      bigger()
+  useEffect(() => {
+    setBiggerCounter();
   });
 
-  const arr = [counterAbout,counterSkills,counterEducation,counterExperince,counterProjects]; 
- 
+  const arrOfCounters = [
+    counterAbout,
+    counterSkills,
+    counterEducation,
+    counterExperince,
+    counterProjects,
+  ];
 
-  const bigger = ()=> {
-  //   let len = arr.length;
-  //   for (let i = 0; i < len-1; i++){ 
-  //       for (let j = 0; j < len-1-i; j++){
-  //            if (arr[j+1] < arr[j]){ 
-  //               let t = arr[j+1]; 
-  //               arr[j+1] = arr[j]; 
-  //               arr[j] = t; 
-  //           }
-  //       }
-  //    }                   
-  //   console.log(arr[arr.length - 1]);
-  //  return arr[arr.length - 1];
-      arr.sort((a,b) => { 
+  const about = "";
+  const education = "";
+  const skills = "";
+  const experience = "";
+  const projects = "";
+
+  const setBiggerCounter = () => {
+    arrOfCounters.sort((a, b) => {
       return a - b;
-    })
-     setMaxPoints(arr[arr.length - 1])
-     for (let key in object){
-      if (maxPoints===object[key]){
-        setPrefer(key)
+    });
+    setMaxPoints(arrOfCounters[arrOfCounters.length - 1]);
+    for (let key in tabsObject) {
+      if (maxPoints === tabsObject[key]) {
+        setPrefer(key);
       }
-      
-     }
-     
-  }
-  
-  
-    return (
-        <div className="favorites">
-          <h3>Favorites</h3>
-            <span>about: {counterAbout}</span>
-            <span>skills: {counterSkills}</span>
-            <span>projects: {counterEducation}</span>
-            <span>education: {counterExperince}</span>
-            <span>experience: {counterProjects}</span>
-            <span> You prefer to know more about my {prefer} : {maxPoints} </span>
-        </div>
-    );
-}
+    }
+  };
+
+  return (
+    <div className="favorites">
+      <h3>
+        <F id="favorites" />
+      </h3>
+      <table>
+        <tr>
+          <th>
+            <F
+              id="about"
+              values={{
+                about: about,
+              }}
+            />
+            :
+          </th>
+          <td>{counterAbout}</td>
+        </tr>
+        <tr>
+          <th>
+            <F
+              id="education"
+              values={{
+                education: education,
+              }}
+            />
+            :
+          </th>
+          <td>{counterEducation}</td>
+        </tr>
+        <tr>
+          <th>
+            <F
+              id="skills"
+              values={{
+                skills: skills,
+              }}
+            />
+            :
+          </th>
+          <td>{counterSkills}</td>
+        </tr>
+        <tr>
+          <th>
+            <F
+              id="experience"
+              values={{
+                experience: experience,
+              }}
+            />
+            :
+          </th>
+          <td>{counterExperince}</td>
+        </tr>
+        <tr>
+          <th>
+            <F
+              id="projects"
+              values={{
+                projects: projects,
+              }}
+            />
+            :
+          </th>
+          <td>{counterProjects}</td>
+        </tr>
+      </table>
+      <div className="score">
+        <span>
+          <F
+            id="like"
+            values={{
+              prefer: prefer,
+            }}
+          />
+          <br />
+        </span>
+        <span>
+          <F
+            id="score"
+            values={{
+              maxPoints: maxPoints,
+            }}
+          />
+        </span>
+      </div>
+    </div>
+  );
+};

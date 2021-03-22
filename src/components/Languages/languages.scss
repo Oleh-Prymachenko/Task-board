@@ -1,3 +1,85 @@
-.languages{
-    margin-right: 50px;
+@import "../../mixin/flexbox.scss";
+@import "../../mixin/font.scss";
+@import "../../mixin/size.scss";
+
+@media (min-width: 320px) {
+  .languages {
+    @include flexbox(column, flex-start, flex-start);
+    padding: 4%;
+    button {
+      @include size(42px, 18px);
+      @include font("Sen-bold", 9px, bold);
+      color: #000000;
+      background-color: #00caa1;
+      text-transform: uppercase;
+      border: 2px solid #000000;
+      & + button {
+        margin-top: 4px;
+      }
+      &:hover {
+        background-color: #0a4e41;
+        color: white;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .languages {
+    button {
+      @include size(50px, 25px);
+      font-size: 11px;
+      & + button {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .languages {
+    button {
+      @include size(55px, 32px);
+      font-size: 12px;
+      & + button {
+        margin-top: 6px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .languages {
+    button {
+      @include size(60px, 40px);
+      font-size: 12px;
+      & + button {
+        margin-top: 7px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .languages {
+    button {
+      @include size(70px, 45px);
+      font-size: 14px;
+      & + button {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .languages {
+    button {
+      @include size(76px, 50px);
+      font-size: 21px;
+      & + button {
+        margin-top: 9px;
+      }
+    }
+  }
 }

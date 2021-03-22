@@ -1,0 +1,63 @@
+@import "../../../../mixin/font.scss";
+
+@media (min-width: 320px) {
+  .works {
+    .work {
+      text-align: left;
+      .work-title {
+        @include font("Sen-bold", 6px, bold);
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .works {
+    .work {
+      .work-title {
+        font-size: 9px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .works {
+    .work {
+      .work-title {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .works {
+    .work {
+      .work-title {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .works {
+    .work {
+      .work-title {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .works {
+    .work {
+      text-align: left;
+      .work-title {
+        @include font("Sen-bold", 20px, bold);
+      }
+    }
+  }
+}

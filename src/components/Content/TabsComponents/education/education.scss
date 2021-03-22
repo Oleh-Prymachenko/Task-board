@@ -1,0 +1,88 @@
+@import "../../../../mixin/font.scss";
+
+@media (min-width: 320px) {
+  .education {
+    .education-title {
+      @include font("Sen-bold", 9px, bold);
+    }
+    p.body-1 {
+      @include font("Sen", 6px, bold);
+    }
+    p.body-2 {
+      @include font("Sen", 6px, normal);
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .education {
+    .education-title {
+      font-size: 11px;
+    }
+    p.body-1 {
+      font-size: 8px;
+    }
+    p.body-2 {
+      font-size: 8px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .education {
+    .education-title {
+      font-size: 13px;
+    }
+    p.body-1 {
+      font-size: 10px;
+    }
+    p.body-2 {
+      font-size: 10px;
+    }
+    .education-date {
+      opacity: 0.5;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .education {
+    .education-title {
+      font-size: 15px;
+    }
+    p.body-1 {
+      font-size: 12px;
+    }
+    p.body-2 {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .education {
+    .education-title {
+      font-size: 18px;
+    }
+    p.body-1 {
+      font-size: 14px;
+    }
+    p.body-2 {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .education {
+    .education-title {
+      font-size: 20px;
+    }
+    p.body-1 {
+      font-size: 16px;
+    }
+    p.body-2 {
+      font-size: 16px;
+    }
+  }
+}

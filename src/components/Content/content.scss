@@ -1,0 +1,78 @@
+@import "../../mixin/flexbox.scss";
+@import "../../mixin/font.scss";
+@import "../../mixin/size.scss";
+
+@media (min-width: 320px) {
+  .container {
+    flex-wrap: wrap;
+    .title {
+      @include font("Sen-bold", 11px, bold);
+      text-transform: uppercase;
+      color: #a053f4;
+    }
+    p.body {
+      @include font("Sen", 9px, normal);
+      text-align: left;
+    }
+
+    .date {
+      float: right;
+      opacity: 0.5;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    .title {
+      font-size: 13px;
+    }
+    p.body {
+      font-size: 11px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    .title {
+      font-size: 15px;
+    }
+    p.body {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    .title {
+      font-size: 18px;
+    }
+    p.body {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    .title {
+      font-size: 20px;
+    }
+    p.body {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    .title {
+      font-size: 27px;
+    }
+    p.body {
+      font-size: 24px;
+    }
+  }
+}

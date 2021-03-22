@@ -1,0 +1,73 @@
+@import "../../../../mixin/flexbox.scss";
+@import "../../../../mixin/font.scss";
+
+@media (min-width: 320px) {
+  .projects {
+    @include flexbox(row, flex-start, none);
+    flex-wrap: wrap;
+    .project {
+      width: 80px;
+      padding: 2%;
+      .project-title {
+        color: #00caa1;
+        @include font("Sen-bold", 6px, bold);
+        text-decoration: underline solid 1px #3177fe;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .projects {
+    .project {
+      width: 140px;
+      .project-title {
+        font-size: 8px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .projects {
+    .project {
+      width: 190px;
+      .project-title {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .projects {
+    .project {
+      width: 250px;
+      .project-title {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .projects {
+    .project {
+      width: 310px;
+      .project-title {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .projects {
+    .project {
+      width: 370px;
+      .project-title {
+        font-size: 21px;
+      }
+    }
+  }
+}
