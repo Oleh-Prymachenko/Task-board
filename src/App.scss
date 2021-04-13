@@ -1,6 +1,31 @@
-.app {
-  text-align: center;
-  .header {
-    color: aqua;
+@import "./mixin/flexbox.scss";
+@import "./mixin/buttons.scss";
+
+body {
+  background-color: #dbf0f1;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserat";
+  box-sizing: border-box;
+}
+.App {
+  .App-header {
+    background-color: #ffffff;
+    @include flexbox(row, space-between, none);
+    .buttons {
+      @include flexbox(row, space-around, none);
+      .task-btn {
+        @include task-button;
+      }
+      .column-btn {
+        @include column-button;
+      }
+    }
+  }
+  .App-main {
+    padding: 6%;
+    .columns {
+      @include flexbox(row, space-between, flex-start);
+    }
   }
 }

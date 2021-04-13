@@ -1,0 +1,22 @@
+@mixin task-button() {
+  border-radius: 10px;
+  padding-left: 18%;
+  padding-right: 18%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: #fc1370;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+@mixin column-button() {
+  border-radius: 10px;
+  padding-left: 13%;
+  padding-right: 13%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border: 1px solid #3f89fc;
+  color: #3f89fc;
+  font-size: 20px;
+  background-color: #ffffff;
+}
