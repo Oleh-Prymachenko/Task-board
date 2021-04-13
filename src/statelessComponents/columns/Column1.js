@@ -15,7 +15,6 @@ export const Column1 = ({ card }) => {
         <Card1 />
         <Card2 />
         <Card3 />
-        {card}
       </div>
     </div>
   );

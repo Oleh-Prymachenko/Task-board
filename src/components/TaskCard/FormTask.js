@@ -20,9 +20,7 @@ export const FormTask = ({
   card,
   setCard,
 }) => {
-  // const [cardTitles, setCardTitles] = useLocalStorageState("titles", []);
   const [cardTitle, setCardTitle] = useState("");
-  const [cardTitles, setCardTitles] = useLocalStorageState("titles", []);
 
   const [startDate, setStartDate] = useState(new Date());
   const [numOfTask, setNumOfTask] = useState(1);
@@ -30,37 +28,30 @@ export const FormTask = ({
   const [author, setAuthor] = useState("");
   const [projectName, setProjectName] = useState([]);
 
-  // const [startDates, setStartDates] = useLocalStorageDateState("date");
-  // const [numOfTasks, setNumOfTasks] = useLocalStorageNumberState("count");
-  // const [cardTimes, setCardTimes] = useLocalStorageStringState("estimated time");
-  // const [authors, setAuthors] = useLocalStorageStringState("author");
-  // const [projectNames, setProjectNames] = useState([]);
-
   const onAddBtnClick = (event) => {
     event.preventDefault();
     setCard(
-      card.concat(
-        <Card
-          cardTitle={cardTitle}
-          cards={cards}
-          key={cards.length}
-          numOfTask={numOfTask}
-          projectName={projectName}
-          startDate={startDate}
-          cardTime={cardTime}
-          setCardTime={setCardTime}
-          author={author}
-          setAuthor={setAuthor}
-          cards={cards}
-          setCards={setCards}
-        />
-      )
+      <Card
+        cardTitle={cardTitle}
+        cards={cards}
+        numOfTask={numOfTask}
+        projectName={projectName}
+        startDate={startDate}
+        cardTime={cardTime}
+        setCardTime={setCardTime}
+        author={author}
+        setAuthor={setAuthor}
+        cards={cards}
+        setCards={setCards}
+      />
     );
     setOpenTask(false);
     setNumOfTask(numOfTask + 1);
+    setCards([...cards, card]);
   };
 
   useEffect(() => {
+    setCards(cards);
     setProjectName(
       getRandomNumber() === 0
         ? "Project X"

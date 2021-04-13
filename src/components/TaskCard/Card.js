@@ -10,26 +10,23 @@ export const Card = ({
   author,
   cards,
   card,
+  c,
+  key,
 }) => {
   return (
-    <div className="card">
-      {/* {cardTitles.map((t, i) => (
-        <h2 key={i} className="card-name">
-          {t}
-        </h2>
-      ))} */}
-      <h2>{cardTitle}</h2>
-      {/* <span className="until">Until {startDate}</span>
-          <span className="time">{cardTime}</span>
-          <button className="project-name">{projectName}</button> */}
-      {/* <div className="card-footer">
-            <h2 className="card-name">{car.props.cardTitle}</h2> */}
-      <span className="card-num">
-        BM-
-        {numOfTask}
-      </span>
-      {/* <img className="avatar" alt={author} src={author} />
-          </div> */}
+    <div className="card" key={key}>
+      <h2 className="card-name">{c.props.cardTitle}</h2>
+      <span className="until">Until {c.props.startDate}</span>
+      <span className="time">{c.props.cardTime}</span>
+      <button className="project-name">{c.props.projectName}</button>
+      <div className="card-footer">
+        <h2 className="card-name">{c.props.cardTitle}</h2>
+        <span className="card-num">
+          BM-
+          {c.props.numOfTask}
+        </span>
+        <img className="avatar" alt={c.props.author} src={c.props.author} />
+      </div>
     </div>
   );
 };

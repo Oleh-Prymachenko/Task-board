@@ -45,14 +45,6 @@ function App() {
           <img src={logoTitle2} alt="img" />
         </div>
         <div className="buttons">
-          <TaskCard
-            openTask={openTask}
-            setOpenTask={setOpenTask}
-            card={card}
-            setCard={setCard}
-            cards={cards}
-            setCards={setCards}
-          />
           <CreateColumn
             openColumn={openColumn}
             setOpenColumn={setOpenColumn}
@@ -86,10 +78,18 @@ function App() {
       </header>
       <div className="App-main">
         <div className="columns">
-          <Column1 card={card} />
-          <Column2 />
+          {cards.slice(1).map((c) => (
+            <Card key={cards.length} c={c} />
+          ))}
           {columns}
-          <Column3 />
+          <TaskCard
+            openTask={openTask}
+            setOpenTask={setOpenTask}
+            card={card}
+            setCard={setCard}
+            cards={cards}
+            setCards={setCards}
+          />
         </div>
       </div>
     </div>
