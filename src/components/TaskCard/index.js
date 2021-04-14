@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./task.scss";
-import { FormTask } from "./FormTask";
+import { TaskForm } from "./TaskForm";
 // import { CardContainer } from "./CardContainer";
 
 const TaskCard = ({
@@ -14,7 +14,7 @@ const TaskCard = ({
 }) => {
   return (
     <div>
-      <FormTask
+      <TaskForm
         openTask={openTask}
         setOpenTask={setOpenTask}
         cards={cards}

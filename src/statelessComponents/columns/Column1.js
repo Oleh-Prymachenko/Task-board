@@ -5,7 +5,8 @@ import { Card3 } from "../cards/Card3";
 import { Card } from "../../components/TaskCard/Card";
 
 import "./column.scss";
-export const Column1 = ({ cards }) => {
+import { CardInfo } from "../../components/cards-modals/LastCard";
+export const Column1 = ({ cards, setOpenCardInfo, openCardInfo }) => {
   return (
     <div className="column">
       <div className="column-header">
@@ -13,8 +14,13 @@ export const Column1 = ({ cards }) => {
       </div>
       <div className="cards">
         <Card1 />
-        {cards.slice(1).map((cardInfo, idx) => (
-          <Card k={idx} cardInfo={cardInfo} />
+        {cards.slice(1).map((localStorage, idx) => (
+          <Card
+            k={idx}
+            localStorage={localStorage}
+            setOpenCardInfo={setOpenCardInfo}
+            openCardInfo={openCardInfo}
+          />
         ))}
       </div>
     </div>

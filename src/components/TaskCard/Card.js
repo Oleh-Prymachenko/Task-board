@@ -1,22 +1,28 @@
 import React from "react";
+import { CardInfo } from "./CardInfo";
 
-export const Card = ({ cardInfo, key }) => {
+export const Card = ({ localStorage, openCardInfo, setOpenCardInfo }) => {
   return (
-    <div className="card" key={key}>
-      <h2 className="card-name">{cardInfo.props.cardTitle}</h2>
-      <span className="until">Until {cardInfo.props.startDate}</span>
-      <span className="time">{cardInfo.props.cardTime}</span>
-      <button className="project-name">{cardInfo.props.projectName}</button>
+    <div
+      className="card"
+      onClick={(e) =>
+        openCardInfo ? setOpenCardInfo(false) : setOpenCardInfo(true)
+      }
+    >
+      <h2 className="card-name">{localStorage.props.cardTitle}</h2>
+      <span className="until">Until {localStorage.props.startDate}</span>
+      <span className="time">{localStorage.props.cardTime}</span>
+      <button className="project-name">{localStorage.props.projectName}</button>
       <div className="card-footer">
-        <h2 className="card-name">{cardInfo.props.cardTitle}</h2>
+        <h2 className="card-name">{localStorage.props.cardTitle}</h2>
         <span className="card-num">
           BM-
-          {cardInfo.props.numOfTask}
+          {localStorage.props.numOfTask}
         </span>
         <img
           className="avatar"
-          alt={cardInfo.props.author}
-          src={cardInfo.props.author}
+          alt={localStorage.props.author}
+          src={localStorage.props.author}
         />
       </div>
     </div>

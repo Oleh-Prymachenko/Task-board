@@ -3,6 +3,12 @@
   background-color: #fc1370;
   color: #ffffff;
   font-size: 20px;
+  &:hover {
+    background: #ff97c0;
+  }
+  &:active {
+    background: #c71059;
+  }
 }
 
 @mixin column-button() {
@@ -11,6 +17,12 @@
   color: #3f89fc;
   font-size: 20px;
   background-color: #ffffff;
+  &:hover {
+    color: #90bbfe;
+  }
+  &:active {
+    background: #accdff;
+  }
 }
 
 @mixin cancel-button() {
@@ -18,4 +30,5 @@
   font-size: 20px;
   color: #3f89fc;
   border: none;
+  background-color: white;
 }

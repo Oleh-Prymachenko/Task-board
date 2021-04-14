@@ -6,7 +6,7 @@ import john from "../../assets/images/avatar-4.png";
 import david from "../../assets/images/avatar-6.png";
 import anna from "../../assets/images/avatar-3.png";
 
-export const FormTask = ({
+export const TaskForm = ({
   openTask,
   setOpenTask,
   cards,
@@ -14,11 +14,11 @@ export const FormTask = ({
   card,
   setCard,
 }) => {
-  const [cardTitle, setCardTitle] = useState("");
+  const [cardTitle, setCardTitle] = useState("first");
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date() * 1);
   const [numOfTask, setNumOfTask] = useState(1);
-  const [cardTime, setCardTime] = useState("");
+  const [cardTime, setCardTime] = useState("time");
   const [author, setAuthor] = useState("");
   const [projectName, setProjectName] = useState([]);
 
@@ -51,14 +51,14 @@ export const FormTask = ({
   }, []);
 
   const showTaskModal = openTask
-    ? "create-task display-block"
-    : "create-task display-none";
+    ? "popup-task display-block"
+    : "popup-task display-none";
 
   return (
     <div className={showTaskModal}>
       {openTask && (
-        <div className="modal-fixed-task">
-          <h2>Create task</h2>
+        <div className="modal-task">
+          <h3>Create task</h3>
           <form className="task-form" onSubmit={onAddBtnClick}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -117,7 +117,7 @@ export const FormTask = ({
                 </select>
               </div>
             </div>
-            <div className="buttons">
+            <div className="task-modal-buttons">
               <button type="submit" className="submit-btn">
                 Create task
               </button>

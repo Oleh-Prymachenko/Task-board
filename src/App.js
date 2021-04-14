@@ -14,10 +14,14 @@ import { Column } from "./components/ColumnContainer/Column";
 import { Column1 } from "./statelessComponents/columns/Column1";
 import { Column2 } from "./statelessComponents/columns/Column2";
 import { Column3 } from "./statelessComponents/columns/Column3";
+import { LastCard } from "./components/cards-modals/LastCard";
+import { CardInfo } from "./components/TaskCard/CardInfo";
 
 function App() {
   const [openTask, setOpenTask] = useState(false);
   const [openColumn, setOpenColumn] = useState(false);
+  const [openLastCard, setOpenLastCard] = useState(false);
+  const [openCardInfo, setOpenCardInfo] = useState(false);
 
   const [cards, setCards] = useLocalStorageState("cards", []);
   const [card, setCard] = useState([]);
@@ -35,7 +39,7 @@ function App() {
           <img src={logoTitle1} alt="img" />
           <img src={logoTitle2} alt="img" />
         </div>
-        <div className="buttons">
+        <div className="App-buttons">
           <TaskCard
             openTask={openTask}
             setOpenTask={setOpenTask}
@@ -43,6 +47,8 @@ function App() {
             setCard={setCard}
             cards={cards}
             setCards={setCards}
+            openLastCard={openLastCard}
+            setOpenLastCard={setOpenLastCard}
           />
           <CreateColumn
             openColumn={openColumn}
@@ -54,6 +60,15 @@ function App() {
             column={column}
             setColumn={setColumn}
           />
+
+          <CardInfo
+            openCardInfo={openCardInfo}
+            setOpenCardInfo={setOpenCardInfo}
+          />
+          {cards.slice(1).map((localStorage, idx) => (
+            <LastCard openLastCard={openLastCard} localStorage={localStorage} />
+          ))}
+
           <button
             className="task-btn"
             onClick={() => (openTask ? setOpenTask(false) : setOpenTask(true))}
@@ -68,11 +83,33 @@ function App() {
           >
             Create column
           </button>
+          <button
+            className="column-btn"
+            onClick={() =>
+              openLastCard ? setOpenLastCard(false) : setOpenLastCard(true)
+            }
+          >
+            Last Card
+          </button>
+          <button
+            className="column-btn"
+            onClick={() =>
+              openCardInfo ? setOpenCardInfo(false) : setOpenCardInfo(true)
+            }
+          >
+            Info
+          </button>
         </div>
       </header>
       <div className="App-main">
         <div className="columns">
-          <Column1 cards={cards} />
+          <Column1
+            cards={cards}
+            openLastCard={openLastCard}
+            setOpenLastCard={setOpenLastCard}
+            openCardInfo={openCardInfo}
+            setOpenCardInfo={setOpenCardInfo}
+          />
           <Column2 />
           {columns.slice(1).map((columnInfo) => (
             <Column columnInfo={columnInfo} />

@@ -1,0 +1,16 @@
+@import "../../mixin/popup.scss";
+@import "../../mixin/modal.scss";
+
+.popup-info {
+  @include popup;
+  .card-info {
+    @include modal(50%);
+  }
+  .display-block {
+    display: block;
+  }
+
+  .display-none {
+    display: none;
+  }
+}

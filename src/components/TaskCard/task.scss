@@ -1,30 +1,25 @@
-@import "../../mixin/popup.scss";
 @import "../../mixin/flexbox.scss";
+@import "../../mixin/popup.scss";
+@import "../../mixin/modal.scss";
+@import "../../mixin/modal-title.scss";
 @import "../../mixin/buttons.scss";
 @import "../../mixin/label.scss";
 
 @media (max-width: 1600.98px) {
-  .modal-fixed-task {
+  .modal-task {
     height: 590px;
     textarea {
       height: 200px;
     }
   }
-
-  .create-task {
+  .popup-task {
     @include popup();
-    .modal-fixed-task {
-      margin: 0;
-      text-align: left;
-      padding: 1%;
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      background: white;
-      width: 75%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    .modal-task {
+      @include flexbox(column, none, none);
+      @include modal(75%);
+      h3 {
+        @include modal-title;
+      }
       .task-form {
         @include flexbox(column, none, none);
         input {
@@ -40,21 +35,17 @@
           @include label();
         }
         .form-group {
-          display: flex;
-          flex-direction: column;
+          @include flexbox(column, none, none);
           input {
             border: 1px solid #3f89fc;
-            box-sizing: border-box;
             border-radius: 4px;
           }
           textarea {
             border: 1px solid #b9b9b9;
-            box-sizing: border-box;
             border-radius: 4px;
           }
         }
         .sub-info {
-          // width: 100%;
           .sub-info-form-group {
             margin-top: 1%;
           }
@@ -62,12 +53,11 @@
           flex-wrap: wrap;
           .sub-info-form-group {
             width: 48%;
-            display: flex;
-            flex-direction: column;
+            @include flexbox(column, none, none);
           }
         }
-        .buttons {
-          margin-top: 4%;
+        .task-modal-buttons {
+          margin-top: 3%;
           @include flexbox(row, flex-end, center);
           .submit-btn + .cancel-btn {
             margin-left: 5%;
@@ -114,6 +104,7 @@
   }
 }
 
+// Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
   .modal-fixed-task {
     height: 425px;
@@ -142,5 +133,3 @@
 //     }
 //   }
 // }
-
-// Medium devices (tablets, less than 992px)

@@ -12,7 +12,7 @@ body {
   .App-header {
     background-color: #ffffff;
     @include flexbox(row, space-between, none);
-    .buttons {
+    .App-buttons {
       @include flexbox(row, space-around, none);
       .task-btn {
         @include task-button;
