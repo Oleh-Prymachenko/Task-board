@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./createColumn.scss";
 import { Column } from "./Column";
 
@@ -9,28 +9,36 @@ export const CreateColumn = ({
   setColumns,
   columnName,
   setColumnName,
+  column,
+  setColumn,
 }) => {
   const showColumnModal = openColumn
     ? "create-column display-block"
     : "create-column display-none";
 
   const addNewColumn = (e) => {
-    setColumns(
-      columns.concat(<Column columnName={columnName} key={columns.length} />)
-    );
+    e.preventDefault();
+    setColumn(<Column columnName={columnName} />);
+    setColumns([...columns, column]);
+    setOpenColumn(false);
   };
+
+  useEffect(() => {
+    setColumns(columns);
+  }, []);
 
   return (
     <div className={showColumnModal}>
       {openColumn && (
         <div className="modal-fixed-column">
-          <p>Create column</p>
-          <input
-            type="text"
-            value={columnName}
-            onChange={(e) => setColumnName(e.target.value)}
-          />
-          <button onClick={() => addNewColumn()}>ADD </button>
+          <form onSubmit={addNewColumn}>
+            <input
+              type="text"
+              value={columnName}
+              onChange={(e) => setColumnName(e.target.value)}
+            />
+            <button type="submit">ADD </button>
+          </form>
           <button onClick={() => setOpenColumn(false)}>Cancel</button>
         </div>
       )}

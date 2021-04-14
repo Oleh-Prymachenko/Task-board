@@ -5,7 +5,7 @@ import { Card3 } from "../cards/Card3";
 import { Card } from "../../components/TaskCard/Card";
 
 import "./column.scss";
-export const Column1 = ({ card }) => {
+export const Column1 = ({ cards }) => {
   return (
     <div className="column">
       <div className="column-header">
@@ -13,8 +13,9 @@ export const Column1 = ({ card }) => {
       </div>
       <div className="cards">
         <Card1 />
-        <Card2 />
-        <Card3 />
+        {cards.slice(1).map((cardInfo, idx) => (
+          <Card k={idx} cardInfo={cardInfo} />
+        ))}
       </div>
     </div>
   );

@@ -9,12 +9,12 @@ import { CreateColumn } from "./components/ColumnContainer/ColumnForm";
 import "./App.scss";
 
 import useLocalStorageState from "use-local-storage-state";
-import { useLocalStorageComponentState } from "./customHooks/localStorageHooks";
+
+import { Column } from "./components/ColumnContainer/Column";
 import { Column1 } from "./statelessComponents/columns/Column1";
 import { Column2 } from "./statelessComponents/columns/Column2";
 import { Column3 } from "./statelessComponents/columns/Column3";
-import { Card } from "./components/TaskCard/Card";
-import { Test } from "./test";
+
 function App() {
   const [openTask, setOpenTask] = useState(false);
   const [openColumn, setOpenColumn] = useState(false);
@@ -22,19 +22,10 @@ function App() {
   const [cards, setCards] = useLocalStorageState("cards", []);
   const [card, setCard] = useState([]);
 
-  const [columns, setColumns] = useState([]);
+  const [columns, setColumns] = useLocalStorageState("columns", []);
+  const [column, setColumn] = useState([]);
 
   const [columnName, setColumnName] = useState("");
-  // const [todos, setTodos] = useLocalStorageState("todos", []);
-  // const [todo, setTodo] = useState("");
-  // const onClick = () => {
-  //   setTodos([...todos, todo]);
-  //   setTodo("");
-  // };
-
-  // useEffect(() => {
-  //   setTodos([...todos]);
-  // }, []);
 
   return (
     <div className="App">
@@ -45,6 +36,14 @@ function App() {
           <img src={logoTitle2} alt="img" />
         </div>
         <div className="buttons">
+          <TaskCard
+            openTask={openTask}
+            setOpenTask={setOpenTask}
+            card={card}
+            setCard={setCard}
+            cards={cards}
+            setCards={setCards}
+          />
           <CreateColumn
             openColumn={openColumn}
             setOpenColumn={setOpenColumn}
@@ -52,6 +51,8 @@ function App() {
             setColumnName={setColumnName}
             columns={columns}
             setColumns={setColumns}
+            column={column}
+            setColumn={setColumn}
           />
           <button
             className="task-btn"
@@ -67,29 +68,16 @@ function App() {
           >
             Create column
           </button>
-          {/* <Test
-            todos={todos}
-            setTodo={setTodo}
-            todo={todo}
-            setTodo={setTodo}
-            onClick={onClick}
-          /> */}
         </div>
       </header>
       <div className="App-main">
         <div className="columns">
-          {cards.slice(1).map((c) => (
-            <Card key={cards.length} c={c} />
+          <Column1 cards={cards} />
+          <Column2 />
+          {columns.slice(1).map((columnInfo) => (
+            <Column columnInfo={columnInfo} />
           ))}
-          {columns}
-          <TaskCard
-            openTask={openTask}
-            setOpenTask={setOpenTask}
-            card={card}
-            setCard={setCard}
-            cards={cards}
-            setCards={setCards}
-          />
+          <Column3 />
         </div>
       </div>
     </div>

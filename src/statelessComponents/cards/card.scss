@@ -1,4 +1,5 @@
 @import "../../mixin/flexbox.scss";
+@import "../../mixin/time-date.scss";
 
 .card {
   width: 326px;
@@ -14,14 +15,10 @@
     color: #333333;
   }
   .until {
-    font-weight: 500;
-    font-size: 16px;
-    color: #b9b9b9;
+    @include time-date();
   }
   .time {
-    font-weight: 500;
-    font-size: 16px;
-    color: #b9b9b9;
+    @include time-date();
   }
   .project-name {
     width: 110px;

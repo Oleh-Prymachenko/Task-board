@@ -1,31 +1,23 @@
 import React from "react";
 
-export const Card = ({
-  cardTitle,
-  cardTitles,
-  numOfTask,
-  projectName,
-  startDate,
-  cardTime,
-  author,
-  cards,
-  card,
-  c,
-  key,
-}) => {
+export const Card = ({ cardInfo, key }) => {
   return (
     <div className="card" key={key}>
-      <h2 className="card-name">{c.props.cardTitle}</h2>
-      <span className="until">Until {c.props.startDate}</span>
-      <span className="time">{c.props.cardTime}</span>
-      <button className="project-name">{c.props.projectName}</button>
+      <h2 className="card-name">{cardInfo.props.cardTitle}</h2>
+      <span className="until">Until {cardInfo.props.startDate}</span>
+      <span className="time">{cardInfo.props.cardTime}</span>
+      <button className="project-name">{cardInfo.props.projectName}</button>
       <div className="card-footer">
-        <h2 className="card-name">{c.props.cardTitle}</h2>
+        <h2 className="card-name">{cardInfo.props.cardTitle}</h2>
         <span className="card-num">
           BM-
-          {c.props.numOfTask}
+          {cardInfo.props.numOfTask}
         </span>
-        <img className="avatar" alt={c.props.author} src={c.props.author} />
+        <img
+          className="avatar"
+          alt={cardInfo.props.author}
+          src={cardInfo.props.author}
+        />
       </div>
     </div>
   );
