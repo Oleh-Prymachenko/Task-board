@@ -31,6 +31,7 @@ function App() {
 
   const [columnName, setColumnName] = useState("");
 
+  const [c, setC] = useState([]);
   return (
     <div className="App">
       <header className="App-header">
@@ -49,6 +50,8 @@ function App() {
             setCards={setCards}
             openLastCard={openLastCard}
             setOpenLastCard={setOpenLastCard}
+            openCardInfo={openCardInfo}
+            setOpenCardInfo={setOpenCardInfo}
           />
           <CreateColumn
             openColumn={openColumn}
@@ -61,10 +64,6 @@ function App() {
             setColumn={setColumn}
           />
 
-          <CardInfo
-            openCardInfo={openCardInfo}
-            setOpenCardInfo={setOpenCardInfo}
-          />
           {cards.slice(1).map((localStorage, idx) => (
             <LastCard openLastCard={openLastCard} localStorage={localStorage} />
           ))}
@@ -109,6 +108,8 @@ function App() {
             setOpenLastCard={setOpenLastCard}
             openCardInfo={openCardInfo}
             setOpenCardInfo={setOpenCardInfo}
+            c={c}
+            setC={setC}
           />
           <Column2 />
           {columns.slice(1).map((columnInfo) => (

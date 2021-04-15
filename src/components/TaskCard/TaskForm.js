@@ -6,6 +6,9 @@ import john from "../../assets/images/avatar-4.png";
 import david from "../../assets/images/avatar-6.png";
 import anna from "../../assets/images/avatar-3.png";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 export const TaskForm = ({
   openTask,
   setOpenTask,
@@ -13,6 +16,8 @@ export const TaskForm = ({
   setCards,
   card,
   setCard,
+  setOpenCardInfo,
+  openCardInfo,
 }) => {
   const [cardTitle, setCardTitle] = useState("first");
 
@@ -32,6 +37,9 @@ export const TaskForm = ({
         startDate={startDate}
         cardTime={cardTime}
         author={author}
+        openCardInfo={openCardInfo}
+        setOpenCardInfo={setOpenCardInfo}
+        cards={cards}
       />
     );
     setNumOfTask(numOfTask + 1);
@@ -82,7 +90,13 @@ export const TaskForm = ({
             <div className="sub-info">
               <div className="sub-info-form-group">
                 <label htmlFor="until">until</label>
-                <input
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  minDate={startDate}
+                  selectsEnd
+                />
+                {/* <input
                   id="until"
                   type="date"
                   value={startDate}
@@ -90,13 +104,20 @@ export const TaskForm = ({
                     console.log("Change", e.target.value);
                     setStartDate(e.target.value);
                   }}
-                />
+                /> */}
               </div>
               <div className="sub-info-form-group">
                 <label htmlFor="time">Time</label>
+                {/* <DatePicker
+                  selected={cardTime}
+                  onChange={(e) => setCardTime(e)}
+                  showTimeSelect
+                  dateFormat="Pp"
+                /> */}
                 <input
                   id="time"
                   type="time"
+                  step="2"
                   value={cardTime}
                   onChange={(e) => {
                     console.log("Change", e.target.value);

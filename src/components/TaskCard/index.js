@@ -11,6 +11,8 @@ const TaskCard = ({
   setCards,
   card,
   setCard,
+  setOpenCardInfo,
+  openCardInfo,
 }) => {
   return (
     <div>
@@ -21,6 +23,8 @@ const TaskCard = ({
         setCards={setCards}
         card={card}
         setCard={setCard}
+        openCardInfo={openCardInfo}
+        setOpenCardInfo={setOpenCardInfo}
       />
     </div>
   );

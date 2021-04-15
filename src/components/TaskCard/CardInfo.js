@@ -1,7 +1,13 @@
 import React from "react";
 import "./cardInfo.scss";
 
-export const CardInfo = ({ openCardInfo, localStorage, cardTitle }) => {
+export const CardInfo = ({
+  openCardInfo,
+  localStorage,
+  title,
+  divElement,
+  cardTitle,
+}) => {
   const showCardInfo = openCardInfo
     ? "popup-info display-block"
     : "popup-info display-none";
@@ -10,14 +16,18 @@ export const CardInfo = ({ openCardInfo, localStorage, cardTitle }) => {
       {openCardInfo && (
         <div className="card-info">
           <h2 className="card-name">{cardTitle}</h2>
-          <span className="until">Until </span>
+          <div>{localStorage.props.cardTitle}</div>
+          {/* {c.map((a) => (
+            <>{a}</>
+          ))} */}
+          {/* <span className="until">Until </span>
           <span className="time"></span>
           <button className="project-name"></button>
           <div className="card-footer">
             <h2 className="card-name"></h2>
             <span className="card-num">BM-</span>
             <img className="avatar" />
-          </div>
+          </div> */}
         </div>
       )}
     </div>
