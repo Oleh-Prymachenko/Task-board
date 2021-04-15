@@ -10,6 +10,7 @@ import "./App.scss";
 
 import useLocalStorageState from "use-local-storage-state";
 
+import { Card } from "./components/TaskCard/Card";
 import { Column } from "./components/ColumnContainer/Column";
 import { Column1 } from "./statelessComponents/columns/Column1";
 import { Column2 } from "./statelessComponents/columns/Column2";
@@ -31,7 +32,6 @@ function App() {
 
   const [columnName, setColumnName] = useState("");
 
-  const [c, setC] = useState([]);
   return (
     <div className="App">
       <header className="App-header">
@@ -70,7 +70,11 @@ function App() {
 
           <button
             className="task-btn"
-            onClick={() => (openTask ? setOpenTask(false) : setOpenTask(true))}
+            onClick={() => {
+              openTask ? setOpenTask(false) : setOpenTask(true);
+              // setOpenCardInfo(false);
+              // setOpenLastCard(false);
+            }}
           >
             Create task
           </button>
@@ -108,8 +112,6 @@ function App() {
             setOpenLastCard={setOpenLastCard}
             openCardInfo={openCardInfo}
             setOpenCardInfo={setOpenCardInfo}
-            c={c}
-            setC={setC}
           />
           <Column2 />
           {columns.slice(1).map((columnInfo) => (

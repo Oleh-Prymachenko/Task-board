@@ -14,7 +14,7 @@ export const Column1 = ({ cards, setOpenCardInfo, openCardInfo }) => {
       </div>
       <div className="cards">
         <Card1 />
-        {cards.slice(1).map((localStorage, idx) => (
+        {cards.map((localStorage, idx) => (
           <Card
             k={idx}
             localStorage={localStorage}

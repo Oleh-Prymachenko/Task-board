@@ -16,7 +16,7 @@ export const CardInfo = ({
       {openCardInfo && (
         <div className="card-info">
           <h2 className="card-name">{cardTitle}</h2>
-          <div>{localStorage.props.cardTitle}</div>
+          {/* <div>{localStorage.props.cardTitle}</div> */}
           {/* {c.map((a) => (
             <>{a}</>
           ))} */}

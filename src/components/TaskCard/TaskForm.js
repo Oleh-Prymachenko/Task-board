@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+import { Description } from "./Description";
 import { Card } from "./Card";
 import { getRandomNumber } from "../../helpers/randomNumber";
 import john from "../../assets/images/avatar-4.png";
@@ -26,9 +27,9 @@ export const TaskForm = ({
   const [cardTime, setCardTime] = useState("time");
   const [author, setAuthor] = useState("");
   const [projectName, setProjectName] = useState([]);
+  const [cardDescription, setCardDescription] = useState("");
 
-  const onAddBtnClick = (e) => {
-    e.preventDefault();
+  useEffect(() => {
     setCard(
       <Card
         cardTitle={cardTitle}
@@ -40,15 +41,10 @@ export const TaskForm = ({
         openCardInfo={openCardInfo}
         setOpenCardInfo={setOpenCardInfo}
         cards={cards}
+        cardDescription={cardDescription}
+        setCardDescription={setCardDescription}
       />
     );
-    setNumOfTask(numOfTask + 1);
-    setCards([...cards, card]);
-    setOpenTask(false);
-  };
-
-  useEffect(() => {
-    setCards(cards);
     setProjectName(
       getRandomNumber() === 0
         ? "Project X"
@@ -56,7 +52,29 @@ export const TaskForm = ({
         ? "Project Y"
         : "Project Z"
     );
-  }, []);
+  }, [cards]);
+
+  const addNewTask = (e) => {
+    e.preventDefault();
+    setNumOfTask(numOfTask + 1);
+    setCards([...cards, card]);
+    setOpenTask(false);
+    setCard(
+      <Card
+        cardTitle={cardTitle}
+        numOfTask={numOfTask}
+        projectName={projectName}
+        startDate={startDate}
+        cardTime={cardTime}
+        author={author}
+        openCardInfo={openCardInfo}
+        setOpenCardInfo={setOpenCardInfo}
+        cards={cards}
+        cardDescription={cardDescription}
+        setCardDescription={setCardDescription}
+      />
+    );
+  };
 
   const showTaskModal = openTask
     ? "popup-task display-block"
@@ -67,7 +85,7 @@ export const TaskForm = ({
       {openTask && (
         <div className="modal-task">
           <h3>Create task</h3>
-          <form className="task-form" onSubmit={onAddBtnClick}>
+          <form className="task-form">
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -82,10 +100,11 @@ export const TaskForm = ({
               />
             </div>
             <div className="form-group">
-              <label htmlFor="decs"> Description</label>
-              <textarea id="decs" placeholder="Placeholder">
-                Description
-              </textarea>
+              <label> Description</label>
+              <Description
+                cardDescription={cardDescription}
+                setCardDescription={setCardDescription}
+              />
             </div>
             <div className="sub-info">
               <div className="sub-info-form-group">
@@ -139,7 +158,11 @@ export const TaskForm = ({
               </div>
             </div>
             <div className="task-modal-buttons">
-              <button type="submit" className="submit-btn">
+              <button
+                type="submit"
+                className="submit-btn"
+                onClick={(e) => addNewTask(e)}
+              >
                 Create task
               </button>
               <button

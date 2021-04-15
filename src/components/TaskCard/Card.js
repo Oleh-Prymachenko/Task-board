@@ -9,18 +9,21 @@ export const Card = ({
   setOpenCardInfo,
   cardTitle,
 }) => {
-  const [translate, setTranslate] = useLocalStorageState("card-position", {
-    x: 0,
-    y: 0,
-  });
+  // const [todo, setTodo] = useState();
+  // const [translate, setTranslate] = useLocalStorageState("card-position", {
+  //   x: 0,
+  //   y: 0,
+  // });
   const handleDragMove = (e) => {
-    setTranslate({
-      x: translate.x + e.movementX,
-      y: translate.y + e.movementY,
-    });
+    // setTranslate({
+    //   x: translate.x + e.movementX,
+    //   y: translate.y + e.movementY,
+    // });
   };
-  useEffect(() => {}, []);
 
+  // useEffect(() => {
+  //   setTodo(localStorage);
+  // }, []);
   return (
     <DragMove onDragMove={handleDragMove}>
       <div
@@ -28,9 +31,9 @@ export const Card = ({
         onDoubleClick={(e) => {
           openCardInfo ? setOpenCardInfo(false) : setOpenCardInfo(true);
         }}
-        style={{
-          transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
-        }}
+        // style={{
+        //   transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
+        // }}
       >
         <CardInfo
           openCardInfo={openCardInfo}
