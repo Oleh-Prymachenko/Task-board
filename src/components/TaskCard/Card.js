@@ -1,6 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import { CardInfo } from "./CardInfo";
-import DragMove from "../../statelessComponents/DragMove";
+import React, { useState, useEffect } from "react";
+
+import { CardInfo } from "../card-components/CardInfo";
+import DragMove from "../card-components/DragMove";
 import useLocalStorageState from "use-local-storage-state";
 
 export const Card = ({
@@ -9,21 +10,21 @@ export const Card = ({
   setOpenCardInfo,
   cardTitle,
 }) => {
-  // const [todo, setTodo] = useState();
-  // const [translate, setTranslate] = useLocalStorageState("card-position", {
-  //   x: 0,
-  //   y: 0,
-  // });
+  const [translate, setTranslate] = useLocalStorageState(
+    `card-position${localStorage.props.numOfTask}`,
+    {
+      x: 0,
+      y: 0,
+    }
+  );
+
   const handleDragMove = (e) => {
-    // setTranslate({
-    //   x: translate.x + e.movementX,
-    //   y: translate.y + e.movementY,
-    // });
+    setTranslate({
+      x: translate.x + e.movementX,
+      y: translate.y + e.movementY,
+    });
   };
 
-  // useEffect(() => {
-  //   setTodo(localStorage);
-  // }, []);
   return (
     <DragMove onDragMove={handleDragMove}>
       <div
@@ -31,9 +32,9 @@ export const Card = ({
         onDoubleClick={(e) => {
           openCardInfo ? setOpenCardInfo(false) : setOpenCardInfo(true);
         }}
-        // style={{
-        //   transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
-        // }}
+        style={{
+          transform: `translateX(${translate.x}px) translateY(${translate.y}px)`,
+        }}
       >
         <CardInfo
           openCardInfo={openCardInfo}

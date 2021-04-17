@@ -1,5 +1,7 @@
 @import "./App.scss";
-@import "./statelessComponents/cards/card.scss";
+@import "./components/TaskCard/card.scss";
+@import "./statelessComponents/columns/column.scss";
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),

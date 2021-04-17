@@ -15,8 +15,8 @@ import { Column } from "./components/ColumnContainer/Column";
 import { Column1 } from "./statelessComponents/columns/Column1";
 import { Column2 } from "./statelessComponents/columns/Column2";
 import { Column3 } from "./statelessComponents/columns/Column3";
-import { LastCard } from "./components/cards-modals/LastCard";
-import { CardInfo } from "./components/TaskCard/CardInfo";
+import { LastCard } from "./components/card-components/LastCard";
+import { CardInfo } from "./components/card-components/CardInfo";
 
 function App() {
   const [openTask, setOpenTask] = useState(false);
@@ -64,7 +64,7 @@ function App() {
             setColumn={setColumn}
           />
 
-          {cards.slice(1).map((localStorage, idx) => (
+          {cards.map((localStorage, idx) => (
             <LastCard openLastCard={openLastCard} localStorage={localStorage} />
           ))}
 
@@ -72,8 +72,6 @@ function App() {
             className="task-btn"
             onClick={() => {
               openTask ? setOpenTask(false) : setOpenTask(true);
-              // setOpenCardInfo(false);
-              // setOpenLastCard(false);
             }}
           >
             Create task
@@ -106,18 +104,27 @@ function App() {
       </header>
       <div className="App-main">
         <div className="columns">
-          <Column1
-            cards={cards}
-            openLastCard={openLastCard}
-            setOpenLastCard={setOpenLastCard}
-            openCardInfo={openCardInfo}
-            setOpenCardInfo={setOpenCardInfo}
-          />
-          <Column2 />
+          <div className="column">
+            <div className="column-header">
+              <div className="column-name">TO DO - 3</div>
+            </div>
+            <div className="cards">
+              {cards.map((localStorage, idx) => (
+                <Card
+                  k={idx}
+                  localStorage={localStorage}
+                  setOpenCardInfo={setOpenCardInfo}
+                  openCardInfo={openCardInfo}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* <Column2 />
           {columns.slice(1).map((columnInfo) => (
             <Column columnInfo={columnInfo} />
           ))}
-          <Column3 />
+          <Column3 /> */}
         </div>
       </div>
     </div>

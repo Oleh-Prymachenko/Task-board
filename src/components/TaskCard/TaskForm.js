@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Description } from "./Description";
+import { Description } from "../card-components/Description";
 import { Card } from "./Card";
 import { getRandomNumber } from "../../helpers/randomNumber";
 import john from "../../assets/images/avatar-4.png";
@@ -21,7 +21,6 @@ export const TaskForm = ({
   openCardInfo,
 }) => {
   const [cardTitle, setCardTitle] = useState("first");
-
   const [startDate, setStartDate] = useState(new Date() * 1);
   const [numOfTask, setNumOfTask] = useState(1);
   const [cardTime, setCardTime] = useState("time");
@@ -52,28 +51,13 @@ export const TaskForm = ({
         ? "Project Y"
         : "Project Z"
     );
-  }, [cards]);
+  }, [cards, cardTitle, numOfTask, projectName, startDate, cardTime, author]);
 
   const addNewTask = (e) => {
     e.preventDefault();
     setNumOfTask(numOfTask + 1);
     setCards([...cards, card]);
     setOpenTask(false);
-    setCard(
-      <Card
-        cardTitle={cardTitle}
-        numOfTask={numOfTask}
-        projectName={projectName}
-        startDate={startDate}
-        cardTime={cardTime}
-        author={author}
-        openCardInfo={openCardInfo}
-        setOpenCardInfo={setOpenCardInfo}
-        cards={cards}
-        cardDescription={cardDescription}
-        setCardDescription={setCardDescription}
-      />
-    );
   };
 
   const showTaskModal = openTask
@@ -109,12 +93,12 @@ export const TaskForm = ({
             <div className="sub-info">
               <div className="sub-info-form-group">
                 <label htmlFor="until">until</label>
-                <DatePicker
+                {/* <DatePicker
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
                   minDate={startDate}
                   selectsEnd
-                />
+                /> */}
                 {/* <input
                   id="until"
                   type="date"
@@ -133,7 +117,7 @@ export const TaskForm = ({
                   showTimeSelect
                   dateFormat="Pp"
                 /> */}
-                <input
+                {/* <input
                   id="time"
                   type="time"
                   step="2"
@@ -142,7 +126,7 @@ export const TaskForm = ({
                     console.log("Change", e.target.value);
                     setCardTime(e.target.value);
                   }}
-                />
+                /> */}
               </div>
               <div className="sub-info-form-group">
                 <label htmlFor="author">author</label>
