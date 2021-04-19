@@ -1,5 +1,6 @@
-@import "../../mixin/flexbox.scss";
-@import "../../mixin/time-date.scss";
+@import "../../../mixin/flexbox.scss";
+@import "../../../mixin/time-date.scss";
+@import "../../../mixin/num.scss";
 
 .card {
   width: 326px;
@@ -8,19 +9,17 @@
   background: #ffffff;
   box-shadow: 10px 10px 50px rgba(145, 167, 168, 0.3);
   border-radius: 10px;
-
   @include flexbox(column, space-evenly, flex-start);
-
   .card-name {
     font-weight: 600;
     font-size: 20px;
     color: #333333;
   }
   .until {
-    @include time-date();
+    @include time-date(16px);
   }
   .time {
-    @include time-date();
+    @include time-date(16px);
   }
   .project-name {
     width: 110px;
@@ -35,9 +34,7 @@
     width: 100%;
     @include flexbox(row, space-between, center);
     .card-num {
-      font-weight: 600;
-      font-size: 24px;
-      color: #333333;
+      @include num(24px);
     }
     .avatar {
     }

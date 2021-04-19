@@ -1,31 +1,38 @@
-import React, { useEffect } from "react";
-import "./column.scss";
-import { Column } from "./Column";
+import React, { useState, useEffect } from "react";
+import "./column-modal.scss";
+import { Column } from "./column/Column";
 
 export const CreateColumn = ({
   openColumn,
   setOpenColumn,
   columns,
   setColumns,
-  columnName,
-  setColumnName,
   column,
   setColumn,
 }) => {
+  const [columnName, setColumnName] = useState("");
+  const [columnNumer, setColumnNumer] = useState(1);
+
   const showColumnModal = openColumn
     ? "popup-column display-block"
     : "popup-column display-none";
 
+  useEffect(() => {
+    setColumn(
+      <Column
+        columnName={columnName}
+        setColumnName={setColumnName}
+        columnNumer={columnNumer}
+      />
+    );
+  }, [columnName, setColumnName, setColumn, columnNumer]);
+
   const addNewColumn = (e) => {
     e.preventDefault();
-    setColumn(<Column columnName={columnName} />);
     setColumns([...columns, column]);
+    setColumnNumer(columnNumer + 1);
     setOpenColumn(false);
   };
-
-  useEffect(() => {
-    setColumns(columns);
-  }, []);
 
   return (
     <div className={showColumnModal}>

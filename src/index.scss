@@ -1,7 +1,8 @@
 @import "./App.scss";
-@import "./components/TaskCard/card.scss";
+@import "./components/task-card/card/card.scss";
 @import "./statelessComponents/columns/column.scss";
-
+@import "./components/task-card/card-modal.scss";
+@import "./components/sub-components/modals/card-info/card-info.scss";
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),

@@ -1,4 +1,5 @@
 @import "../../mixin/flexbox.scss";
+
 .column {
   @include flexbox(column, none, flex-start);
   .column-header {

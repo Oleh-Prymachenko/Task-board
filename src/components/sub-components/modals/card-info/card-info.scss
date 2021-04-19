@@ -1,0 +1,85 @@
+@import "../../../../mixin/popup.scss";
+@import "../../../../mixin/modal.scss";
+@import "../../../../mixin/flexbox.scss";
+@import "../../../../mixin/time-date.scss";
+@import "../../../../mixin/num.scss";
+
+.popup-info {
+  @include popup;
+  .info {
+    @include modal(55%);
+    @include flexbox(column, space-evenly, none);
+    padding: 1%;
+    box-sizing: border-box;
+    .info-header {
+      @include flexbox(row, space-between, flex-end);
+      .info-num {
+        @include num(16px);
+      }
+      .info-cancel {
+        align-self: end;
+        border: none;
+        background-color: white;
+        padding: 0.3%;
+      }
+    }
+    .info-main {
+      @include flexbox(row, space-between, center);
+      .info-name {
+        font-weight: bold;
+        font-size: 32px;
+        color: #333333;
+      }
+      .info-avatar {
+        @include flexbox(row, none, center);
+        margin-right: 5%;
+        span {
+          @include num(16px);
+          margin-right: 15%;
+        }
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+
+    .info-description {
+      font-size: 14px;
+      color: #b9b9b9;
+      box-sizing: border-box;
+
+      .info-text {
+        font-weight: 500;
+        font-size: 14px;
+        color: #333333;
+      }
+    }
+
+    .info-footer {
+      @include flexbox(row, space-between, center);
+      .info-until {
+        @include flexbox(row, center, center);
+        .calendar {
+        }
+        .until {
+          @include time-date(14px);
+        }
+      }
+
+      .info-time {
+        @include flexbox(row, none, center);
+
+        .clock {
+        }
+        .time {
+          @include time-date(14px);
+        }
+      }
+
+      .info-start-date {
+        @include time-date(14px);
+      }
+    }
+  }
+}

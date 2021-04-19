@@ -11,7 +11,7 @@
 //       <button className="project-name">Project X</button>
 //       <div className="card-footer">
 //         <span className="card-num">BM-675</span>
-//         <img className="avatar" src={avatar} />
+//         <img className="avatar" src={avatar}  alt="a" />
 //       </div>
 //     </div>
 //   );

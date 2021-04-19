@@ -13,7 +13,7 @@
 //         <div className="column-name">TO DO - 3</div>
 //       </div>
 //       <div className="cards">
-//         <Card1 />
+//         {/* <Card1 />
 //         {cards.map((localStorage, idx) => (
 //           <Card
 //             k={idx}
@@ -21,7 +21,7 @@
 //             setOpenCardInfo={setOpenCardInfo}
 //             openCardInfo={openCardInfo}
 //           />
-//         ))}
+//         ))} */}
 //       </div>
 //     </div>
 //   );

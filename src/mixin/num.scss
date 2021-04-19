@@ -1,0 +1,5 @@
+@mixin num($font-size) {
+  font-weight: 600;
+  font-size: $font-size;
+  color: #333333;
+}

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
-export const Description = ({ cardDescription, setCardDescription }) => {
-  const [makeBold, setMakeBold] = useState(false);
-  const [makeItalic, setMakeItalic] = useState(false);
-  const [makeUnderline, setMakeUnderline] = useState(false);
-
+export const Description = ({
+  cardDescription,
+  setCardDescription,
+  makeBold,
+  setMakeBold,
+  makeItalic,
+  setMakeItalic,
+  makeUnderline,
+  setMakeUnderline,
+}) => {
   const bold = makeBold ? "bold" : "normal";
   const italic = makeItalic ? "italic" : "normal";
   const underline = makeUnderline ? " underline" : "none";
@@ -13,12 +18,14 @@ export const Description = ({ cardDescription, setCardDescription }) => {
     <div className="description">
       <span className="description-header">
         <button
+          type="button"
           className="formatters"
           onClick={() => (makeBold ? setMakeBold(false) : setMakeBold(true))}
         >
           <strong>B</strong>
         </button>
         <button
+          type="button"
           className="formatters"
           onClick={() =>
             makeItalic ? setMakeItalic(false) : setMakeItalic(true)
@@ -27,6 +34,7 @@ export const Description = ({ cardDescription, setCardDescription }) => {
           <em>I</em>
         </button>
         <button
+          type="button"
           className="formatters"
           onClick={() =>
             makeUnderline ? setMakeUnderline(false) : setMakeUnderline(true)
@@ -38,7 +46,6 @@ export const Description = ({ cardDescription, setCardDescription }) => {
       <textarea
         value={cardDescription}
         onChange={(e) => setCardDescription(e.target.value)}
-        rows="5"
         className="description-text"
         style={{
           fontStyle: italic,

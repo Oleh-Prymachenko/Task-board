@@ -1,5 +1,5 @@
-@mixin time-date {
+@mixin time-date($font-size) {
   font-weight: 500;
-  font-size: 16px;
+  font-size: $font-size;
   color: #b9b9b9;
 }
