@@ -16,6 +16,7 @@ import { Column } from "./components/task-column/column/Column";
 // import { Column2 } from "./statelessComponents/columns/Column2";
 // import { Column3 } from "./statelessComponents/columns/Column3";
 import "./App.scss";
+import "./components/task-column/column/column.scss";
 
 function App() {
   const [openTask, setOpenTask] = useState(false);

@@ -135,6 +135,30 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+  .popup-column {
+    .modal-column {
+      height: 180px;
+      transform: translate(-50%, 77%);
+      h3 {
+        font-size: 17px;
+      }
+      .column-form {
+        .form-group {
+          .label-name {
+            font-size: 9px;
+          }
+        }
+        .column-modal-buttons {
+          .submit-btn {
+            font-size: 13px;
+          }
+          .cancel-btn {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // X-Small devices (portrait phones, less than 576px)

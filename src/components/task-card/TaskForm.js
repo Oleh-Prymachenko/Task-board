@@ -158,6 +158,7 @@ export const TaskForm = ({
                 <div className="sub-info-form-group">
                   <label htmlFor="until">until</label>
                   <DatePicker
+                    className="date-input"
                     selected={cardUntilDate}
                     onChange={(value) => {
                       setCardUntilDate(value);
@@ -169,6 +170,7 @@ export const TaskForm = ({
                 <div className="sub-info-form-group">
                   <label htmlFor="time">Time</label>
                   <TimePicker
+                    className="time-picker"
                     onChange={(value) => setCardTime(value)}
                     value={cardTime}
                     disableClock
@@ -183,8 +185,8 @@ export const TaskForm = ({
                 <div className="sub-info-form-group">
                   <label htmlFor="cardAuthor">cardAuthor</label>
                   <select
+                    className="author-select"
                     required
-                    placeholder="Ваше имя"
                     value={cardAuthor}
                     onChange={(e) => {
                       setCardAuthor(e.target.value);

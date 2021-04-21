@@ -1,26 +1,74 @@
-// @import "../../../mixin/flexbox.scss";
-// @import "../../../mixin/colors.scss";
+@import "../../../mixin/index.scss";
+@media (max-width: 1920.98px) {
+  .column {
+    .column-header {
+      @include flexbox(column, center, flex-start);
+      padding-left: 5%;
+      width: 450px;
+      height: 60px;
+      background: $blue-active;
+      border-radius: 10px;
+      margin-bottom: -2%;
+      .column-name {
+        margin-left: 5%;
+        font-weight: bold;
+        font-size: 20px;
+        color: $white;
+      }
+    }
+  }
+}
 
-// .column {
-//   @include flexbox(column, none, flex-start);
-//   .column-header {
-//     width: 326px;
-//     height: 74px;
-//     background: $blue-active;
-//     border-radius: 10px;
-//     @include flexbox(column, center, flex-start);
-//     .column-name {
-//       margin-left: 5%;
-//       font-weight: bold;
-//       font-size: 20px;
-//       color: $white;
-//     }
-//   }
-//   .cards {
-//     @include flexbox(column, none, flex-start);
-//     flex-wrap: wrap;
-//     .card + .card {
-//       margin-top: 20px;
-//     }
-//   }
-// }
+@media (max-width: 1600.98px) {
+  .column {
+    .column-header {
+      width: 360px;
+      height: 40px;
+      .column-name {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1300.98px) {
+  .column {
+    .column-header {
+      width: 270px;
+      height: 40px;
+      .column-name {
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .column {
+    .column-header {
+      width: 220px;
+      height: 30px;
+      .column-name {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .column {
+    .column-header {
+      width: 150px;
+      height: 20px;
+      .column-name {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+}

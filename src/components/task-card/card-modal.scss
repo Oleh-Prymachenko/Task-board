@@ -1,26 +1,22 @@
 @import "../../mixin";
 
-@media (max-width: 1600.98px) {
-  // .modal-task {
-  //   height: 470px;
-  //   .description-text {
-  //     height: 100px;
-  //   }
-  // }
+@media (max-width: 1920.98px) {
   .popup-task {
     @include popup();
-
     .modal-task {
       @include flexbox(column, none, none);
       @include modal(50%);
-      transform: translate(-50%, 50%);
+      height: 640px;
+      transform: translate(-50%, 60%);
       h3 {
         @include modal-title;
+        font-size: 32px;
       }
       .task-form {
         @include flexbox(column, none, none);
         input {
-          padding: 1%;
+          padding: 2%;
+          font-size: 14px;
         }
         select {
           padding: 1%;
@@ -30,6 +26,8 @@
         }
         label {
           @include label();
+          margin-bottom: 1%;
+          font-size: 14px;
         }
         .form-group {
           @include flexbox(column, none, none);
@@ -58,19 +56,34 @@
               }
             }
             .description-text {
+              height: 200px;
               border: 1px solid $grey;
               border-radius: 4px;
             }
           }
         }
         .sub-info {
-          .sub-info-form-group {
-            margin-top: 1%;
-          }
           @include flexbox(row, space-between, none);
           flex-wrap: wrap;
           .sub-info-form-group {
             width: 48%;
+            margin-top: 1%;
+            // .react-datepicker //
+            .react-datepicker-wrapper {
+              input {
+                width: 97%;
+              }
+            }
+            //  //
+            .react-timepicker-wrapper {
+              .time-picker {
+              }
+            }
+          }
+          .sub-info-form-group {
+            .author-select {
+            }
+
             @include flexbox(column, none, none);
           }
         }
@@ -85,9 +98,11 @@
             padding: 1%;
             padding-left: 5%;
             padding-right: 5%;
+            font-size: 20px;
           }
           .cancel-btn {
             @include cancel-button();
+            font-size: 20px;
           }
         }
       }
@@ -95,52 +110,199 @@
   }
 }
 
-// X-Large devices (large desktops, less than 1400px)
-// @media (max-width: 1399.98px) {
-//   .modal-fixed-task {
-//     height: 430px;
-//     .description {
-//       height: 80px;
-//     }
-//   }
+@media (max-width: 1600.98px) {
+  .popup-task {
+    .modal-task {
+      @include modal(50%);
+      height: 590px;
+      transform: translate(-50%, 50%);
+      h3 {
+        font-size: 29px;
+      }
+      .task-form {
+        input {
+          font-size: 13px;
+        }
+        label {
+          font-size: 13px;
+        }
+        .form-group {
+          .description {
+            .description-header {
+              .formatters {
+                font-size: 13px;
+              }
+            }
+            .description-text {
+              height: 180px;
+            }
+          }
+        }
+        .sub-info {
+        }
+        .task-modal-buttons {
+          .submit-btn {
+            font-size: 18px;
+          }
+          .cancel-btn {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1300.98px) {
+  .popup-task {
+    .modal-task {
+      @include modal(50%);
+      height: 500px;
+      transform: translate(-50%, 35%);
+      h3 {
+        font-size: 25px;
+      }
+      .task-form {
+        input {
+          font-size: 12px;
+        }
+        label {
+          font-size: 12px;
+        }
+        .form-group {
+          .description {
+            .description-header {
+              .formatters {
+                font-size: 12px;
+              }
+            }
+            .description-text {
+              height: 140px;
+            }
+          }
+        }
+        .sub-info {
+        }
+        .task-modal-buttons {
+          .submit-btn {
+            font-size: 16px;
+          }
+          .cancel-btn {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 991.98px) {
+  .popup-task {
+    .modal-task {
+      @include modal(50%);
+      height: 430px;
+      transform: translate(-50%, 30%);
+      h3 {
+        font-size: 21px;
+      }
+      .task-form {
+        input {
+          font-size: 11px;
+        }
+        label {
+          font-size: 11px;
+        }
+        .form-group {
+          .description {
+            .description-header {
+              .formatters {
+                font-size: 11px;
+              }
+            }
+            .description-text {
+              height: 110px;
+            }
+          }
+        }
+        .sub-info {
+        }
+        .task-modal-buttons {
+          .submit-btn {
+            font-size: 14px;
+          }
+          .cancel-btn {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767.98px) {
+  .popup-task {
+    .modal-task {
+      @include modal(50%);
+      height: 300px;
+      transform: translate(-50%, 40%);
+      h3 {
+        font-size: 17px;
+      }
+      .task-form {
+        input {
+          font-size: 10px;
+        }
+        label {
+          font-size: 1px;
+        }
+        .form-group {
+          .description {
+            .description-header {
+              .formatters {
+                font-size: 10px;
+              }
+            }
+            .description-text {
+              height: 80px;
+            }
+          }
+        }
+        .sub-info {
+        }
+        .task-modal-buttons {
+          .submit-btn {
+            font-size: 12px;
+          }
+          .cancel-btn {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+}
+
+// @media (max-width: 1920.98px) {
+// }
+// // X-Large devices (large desktops, less than 1400px)
+// @media (max-width: 1600.98px) {
 // }
 
-// Large devices (desktops, less than 1200px)
-// @media (max-width: 1199.98px) {
-//   .modal-fixed-task {
-//     height: 480px;
-//     .description {
-//       height: 140px;
-//     }
-//   }
+// // Large devices (desktops, less than 1200px)
+// @media (max-width: 1300.98px) {
 // }
 
-// Medium devices (tablets, less than 992px)
+// // Medium devices (tablets, less than 992px)
 // @media (max-width: 991.98px) {
-//   .modal-fixed-task {
-//     height: 425px;
-//     .description {
-//       height: 100px;
-//     }
-//   }
 // }
 
-// Small devices (landscape phones, less than 768px)
+// // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767.98px) {
-//   .modal-fixed-task {
-//     height: 400px;
-//     .description {
-//       height: 70px;
-//     }
-//   }
 // }
 
-// X-Small devices (portrait phones, less than 576px)
+// // X-Small devices (portrait phones, less than 576px)
 // @media (max-width: 575.98px) {
-//   .modal-fixed-task {
-//     height: 300px;
-//     textarea {
-//       height: 100px;
-//     }
-//   }
 // }

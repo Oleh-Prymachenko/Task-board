@@ -165,6 +165,31 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+  .card {
+    width: 150px;
+    height: 130px;
+    .card-name {
+      font-size: 13px;
+    }
+    .until {
+      @include time-date(9px);
+    }
+    .time {
+      @include time-date(9px);
+    }
+    .project-name {
+      font-size: 10px;
+    }
+    .card-footer {
+      .card-num {
+        @include num(12px);
+      }
+      .avatar {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
 }
 
 // X-Small devices (portrait phones, less than 576px)

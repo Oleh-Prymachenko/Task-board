@@ -82,23 +82,6 @@
           }
           padding-right: 4%;
           @include flexbox(row, space-between, none);
-          .column {
-            .column-header {
-              @include flexbox(column, center, flex-start);
-              padding-left: 5%;
-              width: 450px;
-              height: 60px;
-              background: $blue-active;
-              border-radius: 10px;
-              margin-bottom: -2%;
-              .column-name {
-                margin-left: 5%;
-                font-weight: bold;
-                font-size: 20px;
-                color: $white;
-              }
-            }
-          }
         }
       }
     }
@@ -140,80 +123,6 @@
   }
 }
 
-// @media (max-width: 1920.98px) {
-//   .App-header {
-//     margin-left: 6%;
-//     margin-right: 6%;
-//     padding: 1%;
-//     .badge + .the {
-//       margin-left: 10%;
-//     }
-//     .the + .project-title {
-//       margin-left: 3%;
-//     }
-//     .badge {
-//       height: 86px;
-//       width: 86px;
-//     }
-//     .the {
-//       width: 54.03px;
-//       height: 29.82px;
-//     }
-//     .project-title {
-//       width: 125.46px;
-//       height: 31.5px;
-//     }
-//     .column-btn + .task-btn {
-//       margin-left: 6%;
-//     }
-//     .task-btn {
-//       font-size: 20px;
-//       padding: 1%;
-//       padding-left: 5%;
-//       padding-right: 5%;
-//     }
-//     .column-btn {
-//       font-size: 20px;
-//       padding: 1%;
-//       padding-left: 4%;
-//       padding-right: 4%;
-//     }
-//     .lastcard-btn {
-//       padding: 1.5%;
-//       font-size: 20px;
-//     }
-//     .App-main {
-//       .main {
-//         height: 390px;
-//         padding: 5%;
-//         .columns {
-//           .drag + .drag {
-//             margin-top: 20px;
-//           }
-//           padding-right: 2%;
-//           .column-header {
-//             // width: 500px;
-//             // height: 74px;
-//             .column-name {
-//               margin-left: 5%;
-//               font-size: 20px;
-//             }
-//           }
-//         }
-//       }
-//       .scrollbar {
-//         height: 1000px;
-//         .ps__rail-y {
-//           width: 7px;
-//         }
-//         .ps__thumb-y {
-//           width: 4px;
-//           max-height: 8%;
-//         }
-//       }
-//     }
-//   }
-// }
 // X-Large devices (large desktops, less than 1400px)
 @media (max-width: 1600.98px) {
   .App {
@@ -256,15 +165,6 @@
         .columns {
           .drag + .drag {
             margin-top: 18px;
-          }
-          .column {
-            .column-header {
-              width: 360px;
-              height: 50px;
-              .column-name {
-                font-size: 20px;
-              }
-            }
           }
         }
       }
@@ -311,15 +211,6 @@
           .drag + .drag {
             margin-top: 16px;
           }
-          .column {
-            .column-header {
-              width: 270px;
-              height: 40px;
-              .column-name {
-                font-size: 17px;
-              }
-            }
-          }
         }
       }
     }
@@ -365,15 +256,6 @@
           .drag + .drag {
             margin-top: 14px;
           }
-          .column {
-            .column-header {
-              width: 220px;
-              height: 30px;
-              .column-name {
-                font-size: 14px;
-              }
-            }
-          }
         }
       }
     }
@@ -382,6 +264,47 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+  .App {
+    .App-header {
+      .header {
+        .logo {
+          .badge {
+            height: 46px;
+            width: 46px;
+          }
+          .the {
+            width: 30px;
+            height: 14px;
+          }
+          .project-title {
+            width: 65px;
+            height: 19px;
+          }
+        }
+        .header-buttons {
+          .task-btn {
+            font-size: 12px;
+          }
+          .column-btn {
+            @include column-button;
+            font-size: 12px;
+          }
+          .lastcard-btn {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+    .App-main {
+      .main {
+        .columns {
+          .drag + .drag {
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // X-Small devices (portrait phones, less than 576px)

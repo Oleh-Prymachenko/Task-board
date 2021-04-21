@@ -252,6 +252,58 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+  .popup-info {
+    .info {
+      height: 190px;
+      transform: translate(-50%, 70%);
+      .info-header {
+        .info-num {
+          @include num(12px);
+        }
+        .info-cancel {
+        }
+      }
+      .info-main {
+        .info-name {
+          font-size: 19px;
+        }
+        .info-avatar {
+          span {
+            @include num(12px);
+          }
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+      .info-description {
+        font-size: 10px;
+        .info-text {
+          font-size: 10px;
+        }
+      }
+      .info-footer {
+        .info-until {
+          .calendar {
+          }
+          .until {
+            @include time-date(10px);
+          }
+        }
+        .info-time {
+          .clock {
+          }
+          .time {
+            @include time-date(10px);
+          }
+        }
+        .info-start-date {
+          @include time-date(10px);
+        }
+      }
+    }
+  }
 }
 
 // X-Small devices (portrait phones, less than 576px)

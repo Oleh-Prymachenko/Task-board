@@ -259,6 +259,60 @@
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+  .popup-lastcard {
+    .lastcard {
+      height: 190px;
+      transform: translate(-50%, 70%);
+      .lastcard-header {
+        .lastcard-num {
+          @include num(12px);
+        }
+        .lastcard-cancel {
+        }
+      }
+      .lastcard-main {
+        .lastcard-name {
+          font-size: 19px;
+        }
+        .lastcard-avatar {
+          span {
+            font-size: 11px;
+          }
+          img {
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+
+      .lastcard-description {
+        font-size: 10px;
+        .lastcard-text {
+          font-size: 10px;
+        }
+      }
+      .lastcard-footer {
+        .lastcard-until {
+          .calendar {
+          }
+          .until {
+            @include time-date(10px);
+          }
+        }
+        .lastcard-time {
+          .clock {
+          }
+          .time {
+            @include time-date(10px);
+          }
+        }
+
+        .lastcard-start-date {
+          @include time-date(10px);
+        }
+      }
+    }
+  }
 }
 
 // X-Small devices (portrait phones, less than 576px)
