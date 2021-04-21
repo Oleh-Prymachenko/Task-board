@@ -1,64 +1,389 @@
-@import "./mixin/flexbox.scss";
-@import "./mixin/buttons.scss";
+@import "./mixin";
 
-body {
-  background-color: #dbf0f1;
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat";
-  box-sizing: border-box;
-}
-.App {
-  .App-header {
-    background-color: #ffffff;
-    @include flexbox(row, space-between, none);
-    .App-buttons {
-      @include flexbox(row, space-around, none);
-      .task-btn {
-        @include task-button;
-      }
-      .column-btn {
-        @include column-button;
-      }
-    }
+@media (max-width: 1920.98px) {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+    box-sizing: border-box;
+    background-color: #dbf0f1;
   }
-  .App-main {
-    position: relative;
-    height: 390px;
-    padding: 6%;
-    .columns {
-      @include flexbox(row, space-between, none);
-      .column {
-        @include flexbox(column, none, flex-start);
-        .column-header {
-          width: 326px;
-          height: 74px;
-          background: #accdff;
-          border-radius: 10px;
-          @include flexbox(column, center, flex-start);
-          .column-name {
-            margin-left: 5%;
-            font-weight: bold;
-            font-size: 20px;
-            color: #ffffff;
+  .App {
+    background-color: $white;
+
+    .App-header {
+      background-color: $white;
+      margin-left: 6%;
+      margin-right: 6%;
+      padding: 1%;
+      .header {
+        @include flexbox(row, space-between, center);
+        .logo {
+          @include flexbox(row, space-between, center);
+          .badge + .the {
+            margin-left: 10%;
+          }
+          .the + .project-title {
+            margin-left: 3%;
+          }
+          .badge {
+            height: 86px;
+            width: 86px;
+          }
+          .the {
+            width: 54.03px;
+            height: 29.82px;
+          }
+          .project-title {
+            width: 125.46px;
+            height: 31.5px;
           }
         }
-        .cards {
-          @include flexbox(column, none, flex-start);
-          // flex-wrap: wrap;
-          .card + .card {
+        .header-buttons {
+          width: 100%;
+          @include flexbox(row, flex-end, center);
+          .column-btn + .task-btn {
+            margin-left: 6%;
+          }
+          .task-btn {
+            @include task-button;
+            font-size: 20px;
+            padding: 1%;
+            padding-left: 5%;
+            padding-right: 5%;
+          }
+          .column-btn {
+            @include column-button;
+            font-size: 20px;
+            padding: 1%;
+            padding-left: 4%;
+            padding-right: 4%;
+          }
+          .lastcard-btn {
+            @include column-button;
+            // position: fixed;
+            left: 0px;
+            bottom: 0px;
+            padding: 1.5%;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .App-main {
+      background-color: #dbf0f1;
+      .main {
+        position: relative;
+        // height: 390px;
+        padding: 5%;
+        .columns {
+          .drag + .drag {
             margin-top: 20px;
           }
+          padding-right: 4%;
+          @include flexbox(row, space-between, none);
+          .column {
+            .column-header {
+              @include flexbox(column, center, flex-start);
+              padding-left: 5%;
+              width: 450px;
+              height: 60px;
+              background: $blue-active;
+              border-radius: 10px;
+              margin-bottom: -2%;
+              .column-name {
+                margin-left: 5%;
+                font-weight: bold;
+                font-size: 20px;
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .display-block {
+    display: block;
+  }
+
+  .display-none {
+    display: none;
+  }
+
+  .scrollbar {
+    //   /*
+    //  * Scrollbar rail styles
+    //  */
+    height: 1000px;
+    .ps__rail-y {
+      width: 7px;
+      background: $white;
+      border-radius: 6px;
+    }
+    .ps--active-x > .ps__rail-x,
+    .ps--active-y > .ps__rail-y {
+      display: block;
+      background-color: #414141;
+    }
+
+    //   /*
+    //  * Scrollbar thumb styles
+    //  */
+    .ps__thumb-y {
+      width: 4px;
+      max-height: 8%;
+      border-radius: 6px;
+      background-color: #414141;
+    }
+  }
+}
+
+// @media (max-width: 1920.98px) {
+//   .App-header {
+//     margin-left: 6%;
+//     margin-right: 6%;
+//     padding: 1%;
+//     .badge + .the {
+//       margin-left: 10%;
+//     }
+//     .the + .project-title {
+//       margin-left: 3%;
+//     }
+//     .badge {
+//       height: 86px;
+//       width: 86px;
+//     }
+//     .the {
+//       width: 54.03px;
+//       height: 29.82px;
+//     }
+//     .project-title {
+//       width: 125.46px;
+//       height: 31.5px;
+//     }
+//     .column-btn + .task-btn {
+//       margin-left: 6%;
+//     }
+//     .task-btn {
+//       font-size: 20px;
+//       padding: 1%;
+//       padding-left: 5%;
+//       padding-right: 5%;
+//     }
+//     .column-btn {
+//       font-size: 20px;
+//       padding: 1%;
+//       padding-left: 4%;
+//       padding-right: 4%;
+//     }
+//     .lastcard-btn {
+//       padding: 1.5%;
+//       font-size: 20px;
+//     }
+//     .App-main {
+//       .main {
+//         height: 390px;
+//         padding: 5%;
+//         .columns {
+//           .drag + .drag {
+//             margin-top: 20px;
+//           }
+//           padding-right: 2%;
+//           .column-header {
+//             // width: 500px;
+//             // height: 74px;
+//             .column-name {
+//               margin-left: 5%;
+//               font-size: 20px;
+//             }
+//           }
+//         }
+//       }
+//       .scrollbar {
+//         height: 1000px;
+//         .ps__rail-y {
+//           width: 7px;
+//         }
+//         .ps__thumb-y {
+//           width: 4px;
+//           max-height: 8%;
+//         }
+//       }
+//     }
+//   }
+// }
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1600.98px) {
+  .App {
+    .App-header {
+      .header {
+        .logo {
+          .badge {
+            height: 76px;
+            width: 76px;
+          }
+          .the {
+            width: 48px;
+            height: 26px;
+          }
+          .project-title {
+            width: 105px;
+            height: 28px;
+          }
+        }
+        .header-buttons {
+          width: 100%;
+          .column-btn + .task-btn {
+            margin-left: 6%;
+          }
+          .task-btn {
+            font-size: 20px;
+          }
+          .column-btn {
+            @include column-button;
+            font-size: 20px;
+          }
+          .lastcard-btn {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .App-main {
+      .main {
+        .columns {
+          .drag + .drag {
+            margin-top: 18px;
+          }
+          .column {
+            .column-header {
+              width: 360px;
+              height: 50px;
+              .column-name {
+                font-size: 20px;
+              }
+            }
+          }
         }
       }
     }
   }
 }
 
-.display-block {
-  display: block;
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1300.98px) {
+  .App {
+    .App-header {
+      .header {
+        .logo {
+          .badge {
+            height: 66px;
+            width: 66px;
+          }
+          .the {
+            width: 42px;
+            height: 22px;
+          }
+          .project-title {
+            width: 90px;
+            height: 25px;
+          }
+        }
+        .header-buttons {
+          .task-btn {
+            font-size: 17px;
+          }
+          .column-btn {
+            @include column-button;
+            font-size: 17px;
+          }
+          .lastcard-btn {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+    .App-main {
+      .main {
+        .columns {
+          .drag + .drag {
+            margin-top: 16px;
+          }
+          .column {
+            .column-header {
+              width: 270px;
+              height: 40px;
+              .column-name {
+                font-size: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-.display-none {
-  display: none;
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .App {
+    .App-header {
+      .header {
+        .logo {
+          .badge {
+            height: 56px;
+            width: 56px;
+          }
+          .the {
+            width: 35px;
+            height: 19px;
+          }
+          .project-title {
+            width: 80px;
+            height: 22px;
+          }
+        }
+        .header-buttons {
+          .task-btn {
+            font-size: 15px;
+          }
+          .column-btn {
+            @include column-button;
+            font-size: 15px;
+          }
+          .lastcard-btn {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .App-main {
+      .main {
+        .columns {
+          .drag + .drag {
+            margin-top: 14px;
+          }
+          .column {
+            .column-header {
+              width: 220px;
+              height: 30px;
+              .column-name {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
 }

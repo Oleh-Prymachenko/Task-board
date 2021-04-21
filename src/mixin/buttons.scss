@@ -1,34 +1,33 @@
+@import "./colors.scss";
+
 @mixin task-button() {
   border-radius: 10px;
-  background-color: #fc1370;
+  background-color: $pink;
   color: #ffffff;
-  font-size: 20px;
   &:hover {
-    background: #ff97c0;
+    background: $pink-hover;
   }
   &:active {
-    background: #c71059;
+    background: $pink-active;
   }
 }
 
 @mixin column-button() {
   border-radius: 10px;
-  border: 1px solid #3f89fc;
-  color: #3f89fc;
-  font-size: 20px;
+  border: 1px solid $blue;
+  color: $blue;
   background-color: #ffffff;
   &:hover {
-    color: #90bbfe;
+    color: $blue-hover;
   }
   &:active {
-    background: #accdff;
+    background: $blue-active;
   }
 }
 
 @mixin cancel-button() {
   font-weight: 500;
-  font-size: 20px;
-  color: #3f89fc;
+  color: $blue;
   border: none;
   background-color: white;
 }

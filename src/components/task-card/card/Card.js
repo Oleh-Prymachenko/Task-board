@@ -13,7 +13,7 @@ export const Card = ({
       className="card"
       onDoubleClick={(e) => cardInfoHandler(e)}
       style={{
-        transform: `cardTranslateX(${cardTranslate.x}px) cardTranslateY(${cardTranslate.y}px)`,
+        transform: `TranslateX(${cardTranslate.x}px) TranslateY(${cardTranslate.y}px)`,
       }}
       key={cardKey}
     >

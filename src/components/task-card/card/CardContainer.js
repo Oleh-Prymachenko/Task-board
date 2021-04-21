@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { createLocalStorageStateHook } from "use-local-storage-state";
 
-import DragMove from "../../sub-components/drag";
+import DragMove from "../../sub-components/DragMove";
 import { Card } from "./Card";
 
 export const CardContainer = ({
@@ -25,13 +25,6 @@ export const CardContainer = ({
     }
   );
   const [cardTranslate, setCardTranslate] = useCardLocalStoragePosition();
-
-  // useEffect(() => {
-  //   setCardTranslate({
-  //     x: 0,
-  //     y: 0,
-  //   });
-  // }, [setCardTranslate]);
 
   const handleDragMove = (e) => {
     setCardTranslate({
@@ -60,7 +53,7 @@ export const CardContainer = ({
   };
 
   return (
-    <DragMove onDragMove={handleDragMove}>
+    <DragMove onDragMove={handleDragMove} className="drag">
       <Card
         cardStorage={cardStorage}
         cardTranslate={cardTranslate}

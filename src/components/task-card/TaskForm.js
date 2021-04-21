@@ -106,14 +106,23 @@ export const TaskForm = ({
   return (
     <div className={showTaskModal}>
       {openTask && (
+        // <motion.div
+        //   // className="modal-task"
+        //   // animate={{ scale: 1 }}
+        //   // animate={{ rotate: openTask ? 360 : 180 }}
+        //   // transition={{ duration: 1 }}
+        //   // transition={{ duration: 1 }}
+        //   animate={{ rotate: 360 }}
+        //   transition={{ duration: 1 }}
+        // >
         <motion.div
-          // className="modal-task"
-          // animate={{ scale: 1 }}
-          // animate={{ rotate: openTask ? 360 : 180 }}
-          // transition={{ duration: 1 }}
-          // transition={{ duration: 1 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1 }}
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
         >
           <div className="modal-task">
             <h3>Create task</h3>

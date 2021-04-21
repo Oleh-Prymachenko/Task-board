@@ -1,8 +1,20 @@
+// files //
+@import "./mixin/colors.scss";
+
+@import "./mixin/buttons.scss";
+
 @import "./App.scss";
-@import "./components/task-card/card/card.scss";
-@import "./statelessComponents/columns/column.scss";
+
 @import "./components/task-card/card-modal.scss";
 @import "./components/sub-components/modals/card-info/card-info.scss";
+//  //
+// mixin //
+
+//  //
+// variables //
+
+//  //
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"),

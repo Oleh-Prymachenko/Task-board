@@ -38,108 +38,114 @@ function App() {
   const [infoTime, setInfoTime] = useState("");
   const [infoAuthor, setInfoAuthor] = useState("");
 
-  const [makeBold, setMakeBold] = useState(false);
-  const [makeItalic, setMakeItalic] = useState(false);
-  const [makeUnderline, setMakeUnderline] = useState(false);
+  const [makeBold, setMakeBold] = useLocalStorageState("bold", false);
+  const [makeItalic, setMakeItalic] = useLocalStorageState("italic", false);
+  const [makeUnderline, setMakeUnderline] = useLocalStorageState(
+    "underline",
+    false
+  );
 
   return (
     <div className="App">
       <header className="App-header">
-        <div className="logo">
-          <img src={logo} alt="img" />
-          <img src={logoTitle1} alt="img" />
-          <img src={logoTitle2} alt="img" />
-        </div>
-        <div className="App-buttons">
-          <TaskForm
-            openTask={openTask}
-            setOpenTask={setOpenTask}
-            card={card}
-            setCard={setCard}
-            cards={cards}
-            setCards={setCards}
-            openLastCard={openLastCard}
-            setOpenLastCard={setOpenLastCard}
-            openCardInfo={openCardInfo}
-            setOpenCardInfo={setOpenCardInfo}
-            makeBold={makeBold}
-            setMakeBold={setMakeBold}
-            makeItalic={makeItalic}
-            setMakeItalic={setMakeItalic}
-            makeUnderline={makeUnderline}
-            setMakeUnderline={setMakeUnderline}
-          />
-          <CreateColumn
-            openColumn={openColumn}
-            setOpenColumn={setOpenColumn}
-            columns={columns}
-            setColumns={setColumns}
-            column={column}
-            setColumn={setColumn}
-          />
-
-          <CardInfo
-            openCardInfo={openCardInfo}
-            setOpenCardInfo={setOpenCardInfo}
-            infoTitle={infoTitle}
-            infoDescription={infoDescription}
-            infoNum={infoNum}
-            infoUntilDate={infoUntilDate}
-            infoTime={infoTime}
-            infoAuthor={infoAuthor}
-            startDate={startDate}
-            makeBold={makeBold}
-            makeItalic={makeItalic}
-            makeUnderline={makeUnderline}
-          />
-
-          {cards.map((c, idx) => (
-            <LastCard
-              setOpenLastCard={setOpenLastCard}
-              lastcardKey={idx}
+        <div className="header">
+          <div className="logo">
+            <img src={logo} alt="img" className="badge" />
+            <img src={logoTitle1} alt="img" className="the" />
+            <img src={logoTitle2} alt="img" className="project-title" />
+          </div>
+          <div className="header-buttons">
+            <TaskForm
+              openTask={openTask}
+              setOpenTask={setOpenTask}
+              card={card}
+              setCard={setCard}
+              cards={cards}
+              setCards={setCards}
               openLastCard={openLastCard}
-              lastcardStorage={c}
+              setOpenLastCard={setOpenLastCard}
+              openCardInfo={openCardInfo}
+              setOpenCardInfo={setOpenCardInfo}
+              makeBold={makeBold}
+              setMakeBold={setMakeBold}
+              makeItalic={makeItalic}
+              setMakeItalic={setMakeItalic}
+              makeUnderline={makeUnderline}
+              setMakeUnderline={setMakeUnderline}
+            />
+            <CreateColumn
+              openColumn={openColumn}
+              setOpenColumn={setOpenColumn}
+              columns={columns}
+              setColumns={setColumns}
+              column={column}
+              setColumn={setColumn}
+            />
+
+            <CardInfo
+              openCardInfo={openCardInfo}
+              setOpenCardInfo={setOpenCardInfo}
+              infoTitle={infoTitle}
+              infoDescription={infoDescription}
+              infoNum={infoNum}
+              infoUntilDate={infoUntilDate}
+              infoTime={infoTime}
+              infoAuthor={infoAuthor}
+              startDate={startDate}
               makeBold={makeBold}
               makeItalic={makeItalic}
               makeUnderline={makeUnderline}
-              startDate={startDate}
             />
-          ))}
-          <button
-            className="task-btn"
-            onClick={() => {
-              openTask ? setOpenTask(false) : setOpenTask(true);
-            }}
-          >
-            Create task
-          </button>
-          <button
-            className="column-btn"
-            onClick={() =>
-              openColumn ? setOpenColumn(false) : setOpenColumn(true)
-            }
-          >
-            Create column
-          </button>
-          <button
-            className="column-btn"
-            onClick={() =>
-              openLastCard ? setOpenLastCard(false) : setOpenLastCard(true)
-            }
-          >
-            Last Card
-          </button>
+
+            {cards.map((c, idx) => (
+              <LastCard
+                setOpenLastCard={setOpenLastCard}
+                lastcardKey={idx}
+                openLastCard={openLastCard}
+                lastcardStorage={c}
+                makeBold={makeBold}
+                makeItalic={makeItalic}
+                makeUnderline={makeUnderline}
+                startDate={startDate}
+              />
+            ))}
+
+            <button
+              className="column-btn"
+              onClick={() =>
+                openColumn ? setOpenColumn(false) : setOpenColumn(true)
+              }
+            >
+              Create column
+            </button>
+            <button
+              className="task-btn"
+              onClick={() => {
+                openTask ? setOpenTask(false) : setOpenTask(true);
+              }}
+            >
+              Create task
+            </button>
+            <button
+              className="lastcard-btn"
+              onClick={() =>
+                openLastCard ? setOpenLastCard(false) : setOpenLastCard(true)
+              }
+            >
+              Last Card
+            </button>
+          </div>
         </div>
       </header>
-
       <div className="App-main">
-        <PerfectScrollbar>
-          <div className="columns">
-            <div className="column">
-              <div className="column-header">
-                <div className="column-name">TO DO - {cards.length}</div>
-              </div>
-              <div className="cards">
+        <div className="main">
+          <PerfectScrollbar className="scrollbar">
+            {/* suppressScrollX={true} */}
+            <div className="columns">
+              <div className="column">
+                <div className="column-header">
+                  <div className="column-name">TO DO - {cards.length}</div>
+                </div>
                 {cards.map((cardStorage, idx) => (
                   <CardContainer
                     cardKey={idx}
@@ -156,19 +162,19 @@ function App() {
                   />
                 ))}
               </div>
-            </div>
-            {/* <Column2 /> */}
-            {columns.map((columnStorage, idx) => (
-              <Column columnStorage={columnStorage} columnKey={idx} />
-            ))}
-            <div className="column">
-              <div className="column-header">
-                <div className="column-name">DONE - {cards.length}</div>
+              {/* <Column2 /> */}
+              {columns.map((columnStorage, idx) => (
+                <Column columnStorage={columnStorage} columnKey={idx} />
+              ))}
+              <div className="column">
+                <div className="column-header">
+                  <div className="column-name">DONE - {cards.length}</div>
+                </div>
+                <div className="cards"></div>
               </div>
-              <div className="cards"></div>
             </div>
-          </div>
-        </PerfectScrollbar>
+          </PerfectScrollbar>
+        </div>
       </div>
     </div>
   );

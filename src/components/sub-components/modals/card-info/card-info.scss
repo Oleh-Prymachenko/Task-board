@@ -1,85 +1,259 @@
-@import "../../../../mixin/popup.scss";
-@import "../../../../mixin/modal.scss";
-@import "../../../../mixin/flexbox.scss";
-@import "../../../../mixin/time-date.scss";
-@import "../../../../mixin/num.scss";
+@import "../../../../mixin";
 
-.popup-info {
-  @include popup;
-  .info {
-    @include modal(55%);
-    @include flexbox(column, space-evenly, none);
-    padding: 1%;
-    box-sizing: border-box;
-    .info-header {
-      @include flexbox(row, space-between, flex-end);
-      .info-num {
-        @include num(16px);
-      }
-      .info-cancel {
-        align-self: end;
-        border: none;
-        background-color: white;
-        padding: 0.3%;
-      }
-    }
-    .info-main {
-      @include flexbox(row, space-between, center);
-      .info-name {
-        font-weight: bold;
-        font-size: 32px;
-        color: #333333;
-      }
-      .info-avatar {
-        @include flexbox(row, none, center);
-        margin-right: 5%;
-        span {
+@media (max-width: 1920.98px) {
+  .popup-info {
+    @include popup;
+    .info {
+      @include modal(55%);
+      @include flexbox(column, space-evenly, none);
+      height: 314px;
+      transform: translate(-50%, 110%);
+      padding: 1%;
+      .info-header {
+        @include flexbox(row, space-between, flex-end);
+        .info-num {
           @include num(16px);
-          margin-right: 15%;
         }
-        img {
-          width: 50px;
-          height: 50px;
+        .info-cancel {
+          align-self: end;
+          border: none;
+          background-color: $white;
+          padding: 0.3%;
         }
       }
-    }
+      .info-main {
+        @include flexbox(row, space-between, center);
+        .info-name {
+          font-weight: bold;
+          font-size: 32px;
+          color: $black;
+        }
+        .info-avatar {
+          @include flexbox(row, none, center);
+          margin-right: 5%;
+          span {
+            @include num(16px);
+            margin-right: 15%;
+          }
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
 
-    .info-description {
-      font-size: 14px;
-      color: #b9b9b9;
-      box-sizing: border-box;
-
-      .info-text {
-        font-weight: 500;
+      .info-description {
         font-size: 14px;
-        color: #333333;
-      }
-    }
+        color: $grey;
+        box-sizing: border-box;
 
-    .info-footer {
-      @include flexbox(row, space-between, center);
-      .info-until {
-        @include flexbox(row, center, center);
-        .calendar {
+        .info-text {
+          font-weight: 500;
+          font-size: 14px;
+          color: $black;
         }
-        .until {
+      }
+
+      .info-footer {
+        @include flexbox(row, space-between, center);
+        .info-until {
+          @include flexbox(row, center, center);
+          .calendar {
+          }
+          .until {
+            @include time-date(14px);
+          }
+        }
+
+        .info-time {
+          @include flexbox(row, none, center);
+
+          .clock {
+          }
+          .time {
+            @include time-date(14px);
+          }
+        }
+
+        .info-start-date {
           @include time-date(14px);
         }
-      }
-
-      .info-time {
-        @include flexbox(row, none, center);
-
-        .clock {
-        }
-        .time {
-          @include time-date(14px);
-        }
-      }
-
-      .info-start-date {
-        @include time-date(14px);
       }
     }
   }
+}
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1600.98px) {
+  .popup-info {
+    .info {
+      height: 290px;
+      transform: translate(-50%, 100%);
+      .info-header {
+        .info-num {
+          @include num(15px);
+        }
+        .info-cancel {
+        }
+      }
+      .info-main {
+        .info-name {
+          font-size: 28px;
+        }
+        .info-avatar {
+          span {
+            @include num(15px);
+          }
+          img {
+            width: 45px;
+            height: 45px;
+          }
+        }
+      }
+      .info-description {
+        font-size: 13px;
+        .info-text {
+          font-size: 13px;
+        }
+      }
+      .info-footer {
+        .info-until {
+          .calendar {
+          }
+          .until {
+            @include time-date(13px);
+          }
+        }
+        .info-time {
+          .clock {
+          }
+          .time {
+            @include time-date(13px);
+          }
+        }
+        .info-start-date {
+          @include time-date(13px);
+        }
+      }
+    }
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1300.98px) {
+  .popup-info {
+    .info {
+      height: 260px;
+      transform: translate(-50%, 80%);
+      .info-header {
+        .info-num {
+          @include num(14px);
+        }
+        .info-cancel {
+        }
+      }
+      .info-main {
+        .info-name {
+          font-size: 25px;
+        }
+        .info-avatar {
+          span {
+            @include num(14px);
+          }
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+      .info-description {
+        font-size: 12px;
+        .info-text {
+          font-size: 12px;
+        }
+      }
+      .info-footer {
+        .info-until {
+          .calendar {
+          }
+          .until {
+            @include time-date(12px);
+          }
+        }
+        .info-time {
+          .clock {
+          }
+          .time {
+            @include time-date(12px);
+          }
+        }
+        .info-start-date {
+          @include time-date(12px);
+        }
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+  .popup-info {
+    .info {
+      height: 230px;
+      transform: translate(-50%, 60%);
+      .info-header {
+        .info-num {
+          @include num(13px);
+        }
+        .info-cancel {
+        }
+      }
+      .info-main {
+        .info-name {
+          font-size: 22px;
+        }
+        .info-avatar {
+          span {
+            @include num(13px);
+          }
+          img {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+      .info-description {
+        font-size: 11px;
+        .info-text {
+          font-size: 11px;
+        }
+      }
+      .info-footer {
+        .info-until {
+          .calendar {
+          }
+          .until {
+            @include time-date(11px);
+          }
+        }
+        .info-time {
+          .clock {
+          }
+          .time {
+            @include time-date(11px);
+          }
+        }
+        .info-start-date {
+          @include time-date(11px);
+        }
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
 }

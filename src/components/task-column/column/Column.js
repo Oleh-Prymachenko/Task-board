@@ -15,13 +15,6 @@ export const Column = ({ columnStorage, columnKey }) => {
 
   const [columnTranslate, setColumnTranslate] = useColumnLocalStoragePosition();
 
-  useEffect(() => {
-    setColumnTranslate({
-      x: 0,
-      y: 0,
-    });
-  }, [setColumnTranslate]);
-
   const handleDragMove = (e) => {
     setColumnTranslate({
       x: columnTranslate.x + e.movementX,
