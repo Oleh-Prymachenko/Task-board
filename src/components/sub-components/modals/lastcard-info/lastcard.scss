@@ -7,7 +7,7 @@
       @include modal(55%);
       @include flexbox(column, space-evenly, none);
       height: 314px;
-      transform: translate(-50%, 110%);
+      transform: translate(-50%, 50%);
       padding: 1%;
       // box-sizing: border-box;
       .lastcard-header {
@@ -88,7 +88,6 @@
   .popup-lastcard {
     .lastcard {
       height: 290px;
-      transform: translate(-50%, 90%);
       .lastcard-header {
         .lastcard-num {
           @include num(15px);
@@ -146,7 +145,6 @@
   .popup-lastcard {
     .lastcard {
       height: 240px;
-      transform: translate(-50%, 70%);
       .lastcard-header {
         .lastcard-num {
           @include num(14px);
@@ -204,7 +202,6 @@
   .popup-lastcard {
     .lastcard {
       height: 210px;
-      transform: translate(-50%, 60%);
       .lastcard-header {
         .lastcard-num {
           @include num(13px);
@@ -262,7 +259,6 @@
   .popup-lastcard {
     .lastcard {
       height: 190px;
-      transform: translate(-50%, 70%);
       .lastcard-header {
         .lastcard-num {
           @include num(12px);

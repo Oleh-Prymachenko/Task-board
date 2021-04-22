@@ -16,6 +16,9 @@ export const CardContainer = ({
   setInfoAuthor,
   setInfoDescription,
   setStartDate,
+  setInfoBold,
+  setInfoItalic,
+  setInfoUnderline,
 }) => {
   const useCardLocalStoragePosition = createLocalStorageStateHook(
     `card-position ${cardStorage.props.cardNumer}`,
@@ -50,6 +53,9 @@ export const CardContainer = ({
     setInfoTime(cardStorage.props.cardTime);
     setInfoDescription(cardStorage.props.cardDescription);
     setStartDate(cardStorage.props.date);
+    setInfoBold(cardStorage.props.isBold);
+    setInfoItalic(cardStorage.props.isItalic);
+    setInfoUnderline(cardStorage.props.isUnderline);
   };
 
   return (

@@ -1,11 +1,12 @@
 @import "../../../mixin/index.scss";
 @media (max-width: 1920.98px) {
   .column {
+    z-index: 1;
     .column-header {
       @include flexbox(column, center, flex-start);
-      padding-left: 5%;
-      width: 450px;
-      height: 60px;
+      padding-left: 6%;
+      width: 420px;
+      height: 70px;
       background: $blue-active;
       border-radius: 10px;
       margin-bottom: -2%;
@@ -14,6 +15,7 @@
         font-weight: bold;
         font-size: 20px;
         color: $white;
+        margin-bottom: 3%;
       }
     }
   }
@@ -22,8 +24,8 @@
 @media (max-width: 1600.98px) {
   .column {
     .column-header {
-      width: 360px;
-      height: 40px;
+      width: 340px;
+      height: 60px;
       .column-name {
         font-size: 17px;
       }
@@ -34,10 +36,10 @@
 @media (max-width: 1300.98px) {
   .column {
     .column-header {
-      width: 270px;
-      height: 40px;
+      width: 250px;
+      height: 50px;
       .column-name {
-        font-size: 17px;
+        font-size: 14px;
       }
     }
   }
@@ -48,9 +50,9 @@
   .column {
     .column-header {
       width: 220px;
-      height: 30px;
+      height: 40px;
       .column-name {
-        font-size: 14px;
+        font-size: 11px;
       }
     }
   }
@@ -60,10 +62,10 @@
 @media (max-width: 767.98px) {
   .column {
     .column-header {
-      width: 150px;
-      height: 20px;
+      width: 130px;
+      height: 30px;
       .column-name {
-        font-size: 10px;
+        font-size: 9px;
       }
     }
   }

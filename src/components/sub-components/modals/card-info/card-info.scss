@@ -7,7 +7,7 @@
       @include modal(55%);
       @include flexbox(column, space-evenly, none);
       height: 314px;
-      transform: translate(-50%, 110%);
+      transform: translate(-50%, 50%);
       padding: 1%;
       .info-header {
         @include flexbox(row, space-between, flex-end);
@@ -87,7 +87,7 @@
   .popup-info {
     .info {
       height: 290px;
-      transform: translate(-50%, 100%);
+
       .info-header {
         .info-num {
           @include num(15px);
@@ -143,7 +143,6 @@
   .popup-info {
     .info {
       height: 260px;
-      transform: translate(-50%, 80%);
       .info-header {
         .info-num {
           @include num(14px);
@@ -199,7 +198,6 @@
   .popup-info {
     .info {
       height: 230px;
-      transform: translate(-50%, 60%);
       .info-header {
         .info-num {
           @include num(13px);
@@ -255,7 +253,6 @@
   .popup-info {
     .info {
       height: 190px;
-      transform: translate(-50%, 70%);
       .info-header {
         .info-num {
           @include num(12px);

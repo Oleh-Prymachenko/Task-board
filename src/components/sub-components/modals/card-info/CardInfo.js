@@ -18,13 +18,10 @@ export const CardInfo = ({
   infoTime,
   infoAuthor,
   startDate,
-  makeBold,
-  makeItalic,
-  makeUnderline,
+  infoBold,
+  infoItalic,
+  infoUnderline,
 }) => {
-  const bold = makeBold ? "bold" : "normal";
-  const italic = makeItalic ? "italic" : "normal";
-  const underline = makeUnderline ? " underline" : "none";
   const showCardInfo = openCardInfo
     ? "popup-info display-block"
     : "popup-info display-none";
@@ -70,9 +67,9 @@ export const CardInfo = ({
               <p
                 className="info-text"
                 style={{
-                  fontStyle: italic,
-                  fontWeight: bold,
-                  textDecorationLine: underline,
+                  fontStyle: infoItalic ? "italic" : "normal",
+                  fontWeight: infoBold ? "bold" : "normal",
+                  textDecorationLine: infoUnderline ? " underline" : "none",
                 }}
               >
                 {infoDescription}

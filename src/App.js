@@ -39,12 +39,13 @@ function App() {
   const [infoTime, setInfoTime] = useState("");
   const [infoAuthor, setInfoAuthor] = useState("");
 
-  const [makeBold, setMakeBold] = useLocalStorageState("bold", false);
-  const [makeItalic, setMakeItalic] = useLocalStorageState("italic", false);
-  const [makeUnderline, setMakeUnderline] = useLocalStorageState(
-    "underline",
-    false
-  );
+  // const [bolds, setBolds] = useLocalStorageState("bold", []);
+  // const [italics, setItalics] = useLocalStorageState("italic", []);
+  // const [underlines, setUnderlines] = useLocalStorageState("underline", []);
+
+  const [infoBold, setInfoBold] = useState("");
+  const [infoItalic, setInfoItalic] = useState("");
+  const [infoUnderline, setInfoUnderline] = useState("");
 
   return (
     <div className="App">
@@ -67,12 +68,18 @@ function App() {
               setOpenLastCard={setOpenLastCard}
               openCardInfo={openCardInfo}
               setOpenCardInfo={setOpenCardInfo}
-              makeBold={makeBold}
-              setMakeBold={setMakeBold}
-              makeItalic={makeItalic}
-              setMakeItalic={setMakeItalic}
-              makeUnderline={makeUnderline}
-              setMakeUnderline={setMakeUnderline}
+              setInfoBold={setInfoBold}
+              setInfoItalic={setInfoItalic}
+              setInfoUnderline={setInfoUnderline}
+              // isBold={isBold}
+              // isItalic={isItalic}
+              // isUnderline={isUnderline}
+              // setIsBold={setIsBold}
+              // setIsItalic={setIsItalic}
+              // setIsUnderline={setIsUnderline}
+              // bold={bold}
+              // italic={italic}
+              // underline={underline}
             />
             <CreateColumn
               openColumn={openColumn}
@@ -93,9 +100,9 @@ function App() {
               infoTime={infoTime}
               infoAuthor={infoAuthor}
               startDate={startDate}
-              makeBold={makeBold}
-              makeItalic={makeItalic}
-              makeUnderline={makeUnderline}
+              infoBold={infoBold}
+              infoItalic={infoItalic}
+              infoUnderline={infoUnderline}
             />
 
             {cards.map((c, idx) => (
@@ -104,9 +111,9 @@ function App() {
                 lastcardKey={idx}
                 openLastCard={openLastCard}
                 lastcardStorage={c}
-                makeBold={makeBold}
-                makeItalic={makeItalic}
-                makeUnderline={makeUnderline}
+                infoBold={infoBold}
+                infoItalic={infoItalic}
+                infoUnderline={infoUnderline}
                 startDate={startDate}
               />
             ))}
@@ -126,14 +133,6 @@ function App() {
               }}
             >
               Create task
-            </button>
-            <button
-              className="lastcard-btn"
-              onClick={() =>
-                openLastCard ? setOpenLastCard(false) : setOpenLastCard(true)
-              }
-            >
-              Last Card
             </button>
           </div>
         </div>
@@ -160,6 +159,9 @@ function App() {
                     setInfoAuthor={setInfoAuthor}
                     setInfoDescription={setInfoDescription}
                     setStartDate={setStartDate}
+                    setInfoBold={setInfoBold}
+                    setInfoItalic={setInfoItalic}
+                    setInfoUnderline={setInfoUnderline}
                   />
                 ))}
               </div>
@@ -177,6 +179,14 @@ function App() {
           </PerfectScrollbar>
         </div>
       </div>
+      <button
+        className="lastcard-btn"
+        onClick={() =>
+          openLastCard ? setOpenLastCard(false) : setOpenLastCard(true)
+        }
+      >
+        Last Card
+      </button>
     </div>
   );
 }

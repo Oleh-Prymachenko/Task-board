@@ -8,7 +8,7 @@
       @include modal(60%);
       padding: 2%;
       height: 280px;
-      transform: translate(-50%, 120%);
+      transform: translate(-50%, 50%);
       h3 {
         @include modal-title;
         font-size: 32px;
@@ -54,7 +54,6 @@
   .popup-column {
     .modal-column {
       height: 260px;
-      transform: translate(-50%, 110%);
       h3 {
         font-size: 28px;
       }
@@ -82,7 +81,7 @@
   .popup-column {
     .modal-column {
       height: 240px;
-      transform: translate(-50%, 90%);
+
       h3 {
         font-size: 25px;
       }
@@ -110,7 +109,7 @@
   .popup-column {
     .modal-column {
       height: 210px;
-      transform: translate(-50%, 60%);
+
       h3 {
         font-size: 21px;
       }
@@ -138,7 +137,7 @@
   .popup-column {
     .modal-column {
       height: 180px;
-      transform: translate(-50%, 77%);
+
       h3 {
         font-size: 17px;
       }

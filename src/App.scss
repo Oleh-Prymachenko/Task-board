@@ -10,7 +10,6 @@
   }
   .App {
     background-color: $white;
-
     .App-header {
       background-color: $white;
       margin-left: 6%;
@@ -59,14 +58,6 @@
             padding-left: 4%;
             padding-right: 4%;
           }
-          .lastcard-btn {
-            @include column-button;
-            // position: fixed;
-            left: 0px;
-            bottom: 0px;
-            padding: 1.5%;
-            font-size: 20px;
-          }
         }
       }
     }
@@ -74,7 +65,6 @@
       background-color: #dbf0f1;
       .main {
         position: relative;
-        // height: 390px;
         padding: 5%;
         .columns {
           .drag + .drag {
@@ -84,6 +74,16 @@
           @include flexbox(row, space-between, none);
         }
       }
+    }
+    .lastcard-btn {
+      @include column-button;
+      position: fixed;
+      left: 0px;
+      bottom: 0px;
+      padding: 0.2%;
+      font-size: 20px;
+      width: 100%;
+      z-index: 1;
     }
   }
 
@@ -123,7 +123,6 @@
   }
 }
 
-// X-Large devices (large desktops, less than 1400px)
 @media (max-width: 1600.98px) {
   .App {
     .App-header {
@@ -148,14 +147,14 @@
             margin-left: 6%;
           }
           .task-btn {
-            font-size: 20px;
+            font-size: 17px;
           }
           .column-btn {
             @include column-button;
-            font-size: 20px;
+            font-size: 17px;
           }
           .lastcard-btn {
-            font-size: 20px;
+            font-size: 17px;
           }
         }
       }
@@ -169,10 +168,15 @@
         }
       }
     }
+    .scrollbar {
+      //   /*
+      //  * Scrollbar rail styles
+      //  */
+      height: 800px;
+    }
   }
 }
 
-// Large devices (desktops, less than 1200px)
 @media (max-width: 1300.98px) {
   .App {
     .App-header {
@@ -193,14 +197,14 @@
         }
         .header-buttons {
           .task-btn {
-            font-size: 17px;
+            font-size: 14px;
           }
           .column-btn {
             @include column-button;
-            font-size: 17px;
+            font-size: 14px;
           }
           .lastcard-btn {
-            font-size: 17px;
+            font-size: 14px;
           }
         }
       }
@@ -214,10 +218,12 @@
         }
       }
     }
+    .scrollbar {
+      height: 400px;
+    }
   }
 }
 
-// Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
   .App {
     .App-header {
@@ -238,14 +244,14 @@
         }
         .header-buttons {
           .task-btn {
-            font-size: 15px;
+            font-size: 12px;
           }
           .column-btn {
             @include column-button;
-            font-size: 15px;
+            font-size: 12px;
           }
           .lastcard-btn {
-            font-size: 15px;
+            font-size: 12px;
           }
         }
       }
@@ -259,10 +265,12 @@
         }
       }
     }
+    .scrollbar {
+      height: 300px;
+    }
   }
 }
 
-// Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
   .App {
     .App-header {
@@ -283,14 +291,14 @@
         }
         .header-buttons {
           .task-btn {
-            font-size: 12px;
+            font-size: 10px;
           }
           .column-btn {
             @include column-button;
-            font-size: 12px;
+            font-size: 10px;
           }
           .lastcard-btn {
-            font-size: 12px;
+            font-size: 10px;
           }
         }
       }
@@ -303,6 +311,9 @@
           }
         }
       }
+    }
+    .scrollbar {
+      height: 200px;
     }
   }
 }

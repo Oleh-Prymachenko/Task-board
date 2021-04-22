@@ -21,12 +21,15 @@ export const TaskForm = ({
   setCard,
   setOpenCardInfo,
   openCardInfo,
-  makeBold,
-  setMakeBold,
-  makeItalic,
-  setMakeItalic,
-  makeUnderline,
-  setMakeUnderline,
+  // isBold,
+  // isItalic,
+  // isUnderline,
+  // setIsBold,
+  // setIsItalic,
+  // setIsUnderline,
+  // bold,
+  // italic,
+  // underline,
 }) => {
   const currentDate = new Date();
 
@@ -49,9 +52,15 @@ export const TaskForm = ({
   const [cardProjectName, setCardProjectName] = useState([]);
   const [cardDescription, setCardDescription] = useState("");
 
+  const [isBold, setIsBold] = useState(false);
+  const [isItalic, setIsItalic] = useState(false);
+  const [isUnderline, setIsUnderline] = useState(false);
+
   useEffect(() => {
     setCard(
       <CardContainer
+        openCardInfo={openCardInfo}
+        setOpenCardInfo={setOpenCardInfo}
         cardTitle={cardTitle}
         cardNumer={cardNumer}
         cardProjectName={cardProjectName}
@@ -60,8 +69,12 @@ export const TaskForm = ({
         cardAuthor={cardAuthor}
         cardDescription={cardDescription}
         date={date}
-        openCardInfo={openCardInfo}
-        setOpenCardInfo={setOpenCardInfo}
+        // bold={bold}
+        // italic={italic}
+        // underline={underline}
+        isBold={isBold}
+        isItalic={isItalic}
+        isUnderline={isUnderline}
       />
     );
 
@@ -84,6 +97,9 @@ export const TaskForm = ({
     setCard,
     setOpenCardInfo,
     date,
+    isBold,
+    isItalic,
+    isUnderline,
   ]);
 
   const addNewTask = (e) => {
@@ -91,12 +107,14 @@ export const TaskForm = ({
     setCardNumer(cardNumer + 1);
     setCards([...cards, card]);
     setOpenTask(false);
-
     // setCardTitle("");
     // setCardUntilDate("");
     // setCardTime("");
     // setCardAuthor("");
     // setCardDescription("");
+    setIsItalic(false);
+    setIsBold(false);
+    setIsUnderline(false);
   };
 
   const showTaskModal = openTask
@@ -106,15 +124,6 @@ export const TaskForm = ({
   return (
     <div className={showTaskModal}>
       {openTask && (
-        // <motion.div
-        //   // className="modal-task"
-        //   // animate={{ scale: 1 }}
-        //   // animate={{ rotate: openTask ? 360 : 180 }}
-        //   // transition={{ duration: 1 }}
-        //   // transition={{ duration: 1 }}
-        //   animate={{ rotate: 360 }}
-        //   transition={{ duration: 1 }}
-        // >
         <motion.div
           initial={{ scale: 0 }}
           animate={{ rotate: 360, scale: 1 }}
@@ -146,12 +155,15 @@ export const TaskForm = ({
                 <Description
                   cardDescription={cardDescription}
                   setCardDescription={setCardDescription}
-                  makeBold={makeBold}
-                  setMakeBold={setMakeBold}
-                  makeItalic={makeItalic}
-                  setMakeItalic={setMakeItalic}
-                  makeUnderline={makeUnderline}
-                  setMakeUnderline={setMakeUnderline}
+                  isBold={isBold}
+                  setIsBold={setIsBold}
+                  isItalic={isItalic}
+                  setIsItalic={setIsItalic}
+                  isUnderline={isUnderline}
+                  setIsUnderline={setIsUnderline}
+                  // bold={bold}
+                  // italic={italic}
+                  // underline={underline}
                 />
               </div>
               <div className="sub-info">

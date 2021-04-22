@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export const Description = ({
   cardDescription,
   setCardDescription,
-  makeBold,
-  setMakeBold,
-  makeItalic,
-  setMakeItalic,
-  makeUnderline,
-  setMakeUnderline,
+  isBold,
+  setIsBold,
+  isItalic,
+  setIsItalic,
+  isUnderline,
+  setIsUnderline,
+  bold,
+  italic,
+  underline,
 }) => {
-  const bold = makeBold ? "bold" : "normal";
-  const italic = makeItalic ? "italic" : "normal";
-  const underline = makeUnderline ? " underline" : "none";
+  useEffect(() => {
+    // return () => {};
+  }, []);
+
+  // const bold = ;
+  // const italic = ;
+  // const underline = ;
 
   return (
     <div className="description">
@@ -20,16 +27,16 @@ export const Description = ({
         <button
           type="button"
           className="formatters"
-          onClick={() => (makeBold ? setMakeBold(false) : setMakeBold(true))}
+          onClick={() => {
+            isBold ? setIsBold(false) : setIsBold(true);
+          }}
         >
           <strong>B</strong>
         </button>
         <button
           type="button"
           className="formatters"
-          onClick={() =>
-            makeItalic ? setMakeItalic(false) : setMakeItalic(true)
-          }
+          onClick={() => (isItalic ? setIsItalic(false) : setIsItalic(true))}
         >
           <em>I</em>
         </button>
@@ -37,7 +44,7 @@ export const Description = ({
           type="button"
           className="formatters"
           onClick={() =>
-            makeUnderline ? setMakeUnderline(false) : setMakeUnderline(true)
+            isUnderline ? setIsUnderline(false) : setIsUnderline(true)
           }
         >
           <u>U</u>
@@ -48,9 +55,9 @@ export const Description = ({
         onChange={(e) => setCardDescription(e.target.value)}
         className="description-text"
         style={{
-          fontStyle: italic,
-          fontWeight: bold,
-          textDecorationLine: underline,
+          fontStyle: isItalic ? "italic" : "normal",
+          fontWeight: isBold ? "bold" : "normal",
+          textDecorationLine: isUnderline ? " underline" : "none",
         }}
       />
     </div>
