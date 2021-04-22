@@ -1,5 +1,7 @@
 import React from "react";
+
 import "./card.scss";
+import cardPointer from "../../../assets/images/card-pointer.svg";
 
 export const Card = ({
   cardStorage,
@@ -34,6 +36,12 @@ export const Card = ({
           src={cardStorage.props.cardAuthor}
         />
       </div>
+      <button
+        className="open-cards-info-for-mobiles-btn"
+        onClick={(e) => cardInfoHandler(e)}
+      >
+        <img className="card-pointer" src={cardPointer} />
+      </button>
     </div>
   );
 };

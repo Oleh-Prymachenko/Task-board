@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
+import { motion } from "framer-motion";
 
-import "./card-modal.scss";
 import { Description } from "../sub-components/Description";
 import { CardContainer } from "./card/CardContainer";
 import { getRandomNumber } from "../../helpers/randomNumber";
+
+import "./card-modal.scss";
 import john from "../../assets/images/avatar-4.png";
 import david from "../../assets/images/avatar-6.png";
 import anna from "../../assets/images/avatar-3.png";
-import { motion } from "framer-motion";
 
 export const TaskForm = ({
   openTask,
@@ -21,29 +22,20 @@ export const TaskForm = ({
   setCard,
   setOpenCardInfo,
   openCardInfo,
-  // isBold,
-  // isItalic,
-  // isUnderline,
-  // setIsBold,
-  // setIsItalic,
-  // setIsUnderline,
-  // bold,
-  // italic,
-  // underline,
 }) => {
-  const currentDate = new Date();
-
-  const date =
-    currentDate.getDate() +
+  const curDate = new Date();
+  const formatCurrentDate =
+    curDate.getDate() +
     " " +
-    currentDate.toLocaleString("default", { month: "long" }) +
+    curDate.toLocaleString("default", { month: "long" }) +
     " " +
-    currentDate.getFullYear() +
+    curDate.getFullYear() +
     "," +
-    currentDate.getHours() +
+    curDate.getHours() +
     ":" +
-    currentDate.getMinutes();
+    curDate.getMinutes();
 
+  // State for Card component that saved in local storage //
   const [cardTitle, setCardTitle] = useState("");
   const [cardUntilDate, setCardUntilDate] = useState(new Date());
   const [cardNumer, setCardNumer] = useState(1);
@@ -51,10 +43,13 @@ export const TaskForm = ({
   const [cardAuthor, setCardAuthor] = useState("");
   const [cardProjectName, setCardProjectName] = useState([]);
   const [cardDescription, setCardDescription] = useState("");
+  //                                                    //
 
+  // State for text style in description textarea //
   const [isBold, setIsBold] = useState(false);
   const [isItalic, setIsItalic] = useState(false);
   const [isUnderline, setIsUnderline] = useState(false);
+  //                                               //
 
   useEffect(() => {
     setCard(
@@ -68,22 +63,14 @@ export const TaskForm = ({
         cardTime={cardTime}
         cardAuthor={cardAuthor}
         cardDescription={cardDescription}
-        date={date}
-        // bold={bold}
-        // italic={italic}
-        // underline={underline}
+        formatCurrentDate={formatCurrentDate}
         isBold={isBold}
         isItalic={isItalic}
         isUnderline={isUnderline}
       />
     );
-
     setCardProjectName(
-      getRandomNumber() === 0
-        ? "Project X"
-        : getRandomNumber() === 1
-        ? "Project Y"
-        : "Project Z"
+      getRandomNumber() === 0 ? "X" : getRandomNumber() === 1 ? "Y" : "Z"
     );
   }, [
     cardTitle,
@@ -96,7 +83,7 @@ export const TaskForm = ({
     openCardInfo,
     setCard,
     setOpenCardInfo,
-    date,
+    formatCurrentDate,
     isBold,
     isItalic,
     isUnderline,
@@ -161,9 +148,6 @@ export const TaskForm = ({
                   setIsItalic={setIsItalic}
                   isUnderline={isUnderline}
                   setIsUnderline={setIsUnderline}
-                  // bold={bold}
-                  // italic={italic}
-                  // underline={underline}
                 />
               </div>
               <div className="sub-info">

@@ -46,10 +46,14 @@
           }
           .task-btn {
             @include task-button;
+
             font-size: 20px;
             padding: 1%;
             padding-left: 5%;
             padding-right: 5%;
+            &:before {
+              content: "Create task";
+            }
           }
           .column-btn {
             @include column-button;
@@ -57,6 +61,9 @@
             padding: 1%;
             padding-left: 4%;
             padding-right: 4%;
+            &:before {
+              content: "Create column";
+            }
           }
         }
       }
@@ -86,7 +93,7 @@
       z-index: 1;
     }
   }
-
+  // for all popups //
   .display-block {
     display: block;
   }
@@ -94,11 +101,10 @@
   .display-none {
     display: none;
   }
+  //  //
 
   .scrollbar {
-    //   /*
-    //  * Scrollbar rail styles
-    //  */
+    // Scrollbar from npm perfect-scrollbar //
     height: 1000px;
     .ps__rail-y {
       width: 7px;
@@ -111,15 +117,14 @@
       background-color: #414141;
     }
 
-    //   /*
-    //  * Scrollbar thumb styles
-    //  */
+    // Scrollbar thumb styles//
     .ps__thumb-y {
       width: 4px;
       max-height: 8%;
       border-radius: 6px;
       background-color: #414141;
     }
+    // //
   }
 }
 
@@ -169,9 +174,6 @@
       }
     }
     .scrollbar {
-      //   /*
-      //  * Scrollbar rail styles
-      //  */
       height: 800px;
     }
   }
@@ -318,6 +320,96 @@
   }
 }
 
-// X-Small devices (portrait phones, less than 576px)
+// MOBILES LAYOUT //
 @media (max-width: 575.98px) {
+  .App {
+    .App-header {
+      margin-left: 1%;
+      margin-right: 2%;
+      padding: 3%;
+      .header {
+        .logo {
+          .badge {
+            height: 48px;
+            width: 48px;
+          }
+          .the {
+            width: 28px;
+            height: 17px;
+          }
+          .project-title {
+            width: 70px;
+            height: 20px;
+          }
+        }
+        .header-buttons {
+          .task-btn {
+            all: unset;
+            &:before {
+              color: $pink;
+              content: "+";
+              font-size: 30px;
+            }
+          }
+          .column-btn {
+            display: none;
+          }
+        }
+      }
+    }
+    .App-main {
+      .main {
+        .columns {
+          all: unset;
+          .cards-none {
+            display: none;
+          }
+          .cards-display {
+            display: block;
+          }
+        }
+        .scrollbar {
+          all: unset;
+        }
+      }
+    }
+    .lastcard-btn {
+      @include column-button;
+      font-size: 16px;
+    }
+  }
 }
+
+@media (max-width: 320.98px) {
+  .App {
+    .App-header {
+      .header {
+        .logo {
+          .badge {
+            height: 38px;
+            width: 38px;
+          }
+          .the {
+            width: 24px;
+            height: 13px;
+          }
+          .project-title {
+            width: 57px;
+            height: 14px;
+          }
+        }
+        .header-buttons {
+          .task-btn {
+            &:before {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+    .lastcard-btn {
+      font-size: 14px;
+    }
+  }
+}
+//  //

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createLocalStorageStateHook } from "use-local-storage-state";
 
 import DragMove from "../../sub-components/DragMove";
@@ -37,7 +37,7 @@ export const CardContainer = ({
   };
 
   const convertedDate = new Date(cardStorage.props.cardUntilDate);
-  const untilDate =
+  const formatUntilDate =
     convertedDate.getDate() +
     "." +
     convertedDate.getMonth() +
@@ -49,10 +49,10 @@ export const CardContainer = ({
     setInfoTitle(cardStorage.props.cardTitle);
     setInfoNum(cardStorage.props.cardNumer);
     setInfoAuthor(cardStorage.props.cardAuthor);
-    setInfoUntilDate(untilDate);
+    setInfoUntilDate(formatUntilDate);
     setInfoTime(cardStorage.props.cardTime);
     setInfoDescription(cardStorage.props.cardDescription);
-    setStartDate(cardStorage.props.date);
+    setStartDate(cardStorage.props.formatCurrentDate);
     setInfoBold(cardStorage.props.isBold);
     setInfoItalic(cardStorage.props.isItalic);
     setInfoUnderline(cardStorage.props.isUnderline);
@@ -65,7 +65,7 @@ export const CardContainer = ({
         cardTranslate={cardTranslate}
         cardKey={cardKey}
         cardInfoHandler={cardInfoHandler}
-        untilDate={untilDate}
+        formatUntilDate={formatUntilDate}
       />
     </DragMove>
   );

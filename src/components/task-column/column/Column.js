@@ -1,67 +1,34 @@
-import React, { useEffect } from "react";
-import { createLocalStorageStateHook } from "use-local-storage-state";
+import React from "react";
 
-import DragMove from "../../sub-components/DragMove";
 import "./column.scss";
+import columnPointerPassive from "../../../assets/images/pointer-passive.png";
+import columnPointerActive from "../../../assets/images/pointer-active.png";
 
-export const Column = ({ columnStorage, columnKey }) => {
-  const useColumnLocalStoragePosition = createLocalStorageStateHook(
-    `column-position ${columnStorage.props.columnNumer}`,
-    {
-      x: 0,
-      y: 0,
-    }
-  );
-
-  const [columnTranslate, setColumnTranslate] = useColumnLocalStoragePosition();
-
-  const handleDragMove = (e) => {
-    setColumnTranslate({
-      x: columnTranslate.x + e.movementX,
-      y: columnTranslate.y + e.movementY,
-    });
-  };
-
+export const Column = ({
+  columnStorage,
+  columnKey,
+  openCards,
+  setOpenCards,
+  columnTranslate,
+}) => {
   return (
-    <DragMove onDragMove={handleDragMove}>
-      <div
-        className="column"
-        key={columnKey}
-        style={{
-          transform: `translateX(${columnTranslate.x}px) translateY(${columnTranslate.y}px)`,
-        }}
-      >
-        <div className="column-header">
-          <div className="column-name">{columnStorage.props.columnName}</div>
-        </div>
-        {/* <div className="cards"></div> */}
+    <div
+      className="column"
+      key={columnKey}
+      style={{
+        transform: `translateX(${columnTranslate.x}px) translateY(${columnTranslate.y}px)`,
+      }}
+    >
+      <div className="column-header">
+        <div className="column-name">{columnStorage.props.columnName}</div>
+        <button
+          className="open-cards-for-mobiles-btn"
+          onClick={() => (openCards ? setOpenCards(false) : setOpenCards(true))}
+        >
+          {openCards ? columnPointerPassive : columnPointerActive}
+        </button>
       </div>
-    </DragMove>
+      <div className="cards"></div>
+    </div>
   );
 };
-
-// export const CardContainer = ({
-//   cardStorage,
-//   setOpenCardInfo,
-//   openCardInfo,
-//   cardKey,
-//   setInfoTitle,
-//   setInfoNum,
-//   setInfoUntilDate,
-//   setInfoTime,
-//   setInfoAuthor,
-//   setInfoDescription,
-//   setStartDate,
-// }) => {
-//   return (
-//     <DragMove onDragMove={handleDragMove}>
-//       <Card
-//         cardStorage={cardStorage}
-//         translate={translate}
-//         cardKey={cardKey}
-//         cardInfoHandler={cardInfoHandler}
-//         untilDate={untilDate}
-//       />
-//     </DragMove>
-//   );
-// };

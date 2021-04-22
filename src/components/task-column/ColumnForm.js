@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./column-modal.scss";
-import { Column } from "./column/Column";
+import { ColumnContainer } from "./column/ColumnContainer";
 import { motion } from "framer-motion";
 
 export const CreateColumn = ({
@@ -20,7 +20,7 @@ export const CreateColumn = ({
 
   useEffect(() => {
     setColumn(
-      <Column
+      <ColumnContainer
         columnName={columnName}
         setColumnName={setColumnName}
         columnNumer={columnNumer}
