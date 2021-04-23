@@ -25,7 +25,10 @@ export const Column = ({
           className="open-cards-for-mobiles-btn"
           onClick={() => (openCards ? setOpenCards(false) : setOpenCards(true))}
         >
-          {openCards ? columnPointerPassive : columnPointerActive}
+          <img
+            src={openCards ? columnPointerActive : columnPointerPassive}
+            alt="pointer"
+          />
         </button>
       </div>
       <div className="cards"></div>

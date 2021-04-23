@@ -6,9 +6,9 @@ import { Card } from "./Card";
 
 export const CardContainer = ({
   cardStorage,
+  cardKey,
   setOpenCardInfo,
   openCardInfo,
-  cardKey,
   setInfoTitle,
   setInfoNum,
   setInfoUntilDate,
@@ -62,9 +62,9 @@ export const CardContainer = ({
     <DragMove onDragMove={handleDragMove} className="drag">
       <Card
         cardStorage={cardStorage}
-        cardTranslate={cardTranslate}
         cardKey={cardKey}
         cardInfoHandler={cardInfoHandler}
+        cardTranslate={cardTranslate}
         formatUntilDate={formatUntilDate}
       />
     </DragMove>

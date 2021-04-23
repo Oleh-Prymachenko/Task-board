@@ -283,6 +283,148 @@
 }
 
 @media (max-width: 575.98px) {
+  .popup-task {
+    .modal-task {
+      @include modal(90%);
+      height: 540px;
+      transform: translate(-50%, 13%);
+      padding: 3%;
+      h3 {
+        font-size: 22px;
+      }
+      .task-form {
+        input {
+          padding: 2%;
+          font-size: 15px;
+        }
+        select {
+          padding: 2%;
+        }
+        .form-group + .form-group {
+          margin-top: 5%;
+        }
+        label {
+          margin-bottom: 1%;
+          font-size: 11px;
+        }
+        .form-group {
+          // margin-top: 5%;
+          input {
+            border: 1px solid $grey;
+            box-sizing: border-box;
+            border-radius: 4px;
+          }
+          .description {
+            @include flexbox(column, none, none);
+            height: 45%;
+            border: 1px solid $grey;
+            box-sizing: border-box;
+            border-radius: 4px;
+            .description-header {
+              display: none;
+              .formatters {
+                display: none;
+              }
+            }
+            .description-text {
+              all: unset;
+              border-radius: 4px;
+            }
+          }
+        }
+        .sub-info {
+          .sub-info-form-group + .sub-info-form-group {
+            margin-top: 6%;
+          }
+          .sub-info-form-group {
+            margin-top: -1%;
+            width: 100%;
+            // .react-datepicker //
+            .react-datepicker-wrapper {
+              input {
+                width: 100%;
+                border: 1px solid $grey;
+                box-sizing: border-box;
+                border-radius: 4px;
+              }
+            }
+            //  //
+            // .react-timepicker //
+            .react-time-picker__wrapper {
+              border: 1px solid $grey;
+              box-sizing: border-box;
+              border-radius: 4px;
+
+              .time-picker {
+                border: 1px solid $grey;
+                box-sizing: border-box;
+                border-radius: 4px;
+              }
+            }
+            //                  //
+          }
+          .sub-info-form-group {
+            // margin-top: 5%;
+            .author-select {
+              all: unset;
+              border: 1px solid $grey;
+              box-sizing: border-box;
+              padding: 1%;
+              border-radius: 4px;
+            }
+          }
+        }
+        .task-modal-buttons {
+          margin-top: 5%;
+          @include flexbox(column, none, none);
+          width: 100%;
+          .submit-btn {
+            margin-top: 3%;
+            padding: 1%;
+            padding-left: 5%;
+            padding-right: 5%;
+            width: 100%;
+            @include task-button();
+            font-size: 16px;
+            border-radius: 6px;
+          }
+          .cancel-btn {
+            margin-top: 3%;
+            width: 100%;
+            @include cancel-button();
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 320.98px) {
+  .popup-task {
+    .modal-task {
+      height: 444px;
+      h3 {
+        font-size: 20px;
+      }
+      .task-form {
+        input {
+          font-size: 14px;
+        }
+        label {
+          font-size: 10px;
+        }
+        .task-modal-buttons {
+          .submit-btn {
+            font-size: 14px;
+          }
+          .cancel-btn {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // @media (max-width: 1920.98px) {

@@ -147,15 +147,10 @@
           }
         }
         .header-buttons {
-          width: 100%;
-          .column-btn + .task-btn {
-            margin-left: 6%;
-          }
           .task-btn {
             font-size: 17px;
           }
           .column-btn {
-            @include column-button;
             font-size: 17px;
           }
           .lastcard-btn {

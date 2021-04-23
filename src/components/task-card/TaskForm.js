@@ -152,7 +152,7 @@ export const TaskForm = ({
               </div>
               <div className="sub-info">
                 <div className="sub-info-form-group">
-                  <label htmlFor="until">until</label>
+                  <label htmlFor="until">Until</label>
                   <DatePicker
                     className="date-input"
                     selected={cardUntilDate}
@@ -179,7 +179,7 @@ export const TaskForm = ({
                   />
                 </div>
                 <div className="sub-info-form-group">
-                  <label htmlFor="cardAuthor">cardAuthor</label>
+                  <label htmlFor="cardAuthor">Author</label>
                   <select
                     className="author-select"
                     required

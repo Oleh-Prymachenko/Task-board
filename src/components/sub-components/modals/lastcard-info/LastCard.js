@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./lastcard.scss";
 import clock from "../../../../assets/images/clock.svg";
 import calendar from "../../../../assets/images/calendar.svg";
@@ -13,15 +14,7 @@ export const LastCard = ({
   openLastCard,
   lastcardStorage,
   lastcardKey,
-  makeBold,
-  makeItalic,
-  makeUnderline,
-  startDate,
 }) => {
-  const bold = makeBold ? "bold" : "normal";
-  const italic = makeItalic ? "italic" : "normal";
-  const underline = makeUnderline ? " underline" : "none";
-
   const convertedDate = new Date(lastcardStorage.props.cardUntilDate);
   const untilDate =
     convertedDate.getDate() +
@@ -81,9 +74,13 @@ export const LastCard = ({
               <p
                 className="lastcard-text"
                 style={{
-                  fontStyle: italic,
-                  fontWeight: bold,
-                  textDecorationLine: underline,
+                  fontStyle: lastcardStorage.props.isItalic
+                    ? "italic"
+                    : "normal",
+                  fontWeight: lastcardStorage.props.isBold ? "bold" : "normal",
+                  textDecorationLine: lastcardStorage.props.isUnderline
+                    ? " underline"
+                    : "none",
                 }}
               >
                 {lastcardStorage.props.cardDescription}

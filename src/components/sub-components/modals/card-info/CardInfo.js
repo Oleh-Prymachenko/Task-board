@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import "./card-info.scss";
 import clock from "../../../../assets/images/clock.svg";
 import calendar from "../../../../assets/images/calendar.svg";
@@ -6,7 +8,6 @@ import x from "../../../../assets/images/x.svg";
 import john from "../../../../assets/images/avatar-4.png";
 import david from "../../../../assets/images/avatar-6.png";
 import anna from "../../../../assets/images/avatar-3.png";
-import { motion } from "framer-motion";
 
 export const CardInfo = ({
   openCardInfo,

@@ -8,9 +8,7 @@ import { CreateColumn } from "./components/task-column/ColumnForm";
 import { LastCard } from "./components/sub-components/modals/lastcard-info/LastCard";
 import { CardInfo } from "./components/sub-components/modals/card-info/CardInfo";
 import { CardContainer } from "./components/task-card/card/CardContainer";
-// import { Column1 } from "./statelessComponents/columns/Column1";
-// import { Column2 } from "./statelessComponents/columns/Column2";
-// import { Column3 } from "./statelessComponents/columns/Column3";
+
 import "./App.scss";
 import "./components/task-column/column/column.scss";
 import pointerPassive from "./assets/images/pointer-passive.png";
@@ -141,6 +139,7 @@ function App() {
                   <button className="open-cards-for-mobiles-btn">
                     <img
                       className="pointer"
+                      alt="pointer"
                       onClick={() =>
                         openCards ? setOpenCards(false) : setOpenCards(true)
                       }
@@ -181,8 +180,19 @@ function App() {
               <div className="column">
                 <div className="column-header">
                   <div className="column-name">DONE - {cards.length}</div>
+                  <button className="open-cards-for-mobiles-btn">
+                    <img
+                      className="pointer"
+                      alt="pointer"
+                      onClick={() =>
+                        openCards ? setOpenCards(false) : setOpenCards(true)
+                      }
+                      src={openCards ? pointerActive : pointerPassive}
+                    />
+                  </button>
                 </div>
                 <div className="cards"></div>
+
                 <button
                   className="column-btn-for-mobiles"
                   onClick={() =>
