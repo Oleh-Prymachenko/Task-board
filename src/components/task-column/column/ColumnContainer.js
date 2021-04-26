@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createLocalStorageStateHook } from "use-local-storage-state";
 
-import { Column } from "./Column";
+import Column from "./Column";
 import DragMove from "../../sub-components/DragMove";
 
 export const ColumnContainer = (props) => {

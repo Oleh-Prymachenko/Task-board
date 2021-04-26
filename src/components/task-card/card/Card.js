@@ -40,7 +40,7 @@ export const Card = ({
         className="open-cards-info-for-mobiles-btn"
         onClick={(e) => cardInfoHandler(e)}
       >
-        <img className="card-pointer" src={cardPointer} />
+        <img className="card-pointer" src={cardPointer} alt="pointer" />
       </button>
     </div>
   );

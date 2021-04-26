@@ -6,7 +6,7 @@
     .info {
       @include modal(55%);
       @include flexbox(column, space-evenly, none);
-      height: 314px;
+      min-height: 314px;
       transform: translate(-50%, 50%);
       padding: 1%;
       .info-header {
@@ -27,6 +27,7 @@
           font-weight: bold;
           font-size: 32px;
           color: $black;
+          box-sizing: border-box;
           word-break: break-all;
         }
         .info-avatar {
@@ -87,8 +88,7 @@
 @media (max-width: 1600.98px) {
   .popup-info {
     .info {
-      height: 290px;
-
+      min-height: 290px;
       .info-header {
         .info-num {
           @include num(15px);
@@ -142,7 +142,7 @@
 @media (max-width: 1300.98px) {
   .popup-info {
     .info {
-      height: 260px;
+      min-height: 260px;
       .info-header {
         .info-num {
           @include num(14px);
@@ -196,7 +196,7 @@
 @media (max-width: 991.98px) {
   .popup-info {
     .info {
-      height: 230px;
+      min-height: 230px;
       .info-header {
         .info-num {
           @include num(13px);
@@ -250,7 +250,7 @@
 @media (max-width: 767.98px) {
   .popup-info {
     .info {
-      height: 190px;
+      min-height: 190px;
       .info-header {
         .info-num {
           @include num(12px);
@@ -308,7 +308,7 @@
       all: unset;
       @include modal(85%);
       @include flexbox(column, none, none);
-      height: 420px;
+      min-height: 420px;
       transform: translate(-50%, 15%);
       padding: 3%;
       .info-header {
@@ -383,7 +383,7 @@
 @media (max-width: 320.98px) {
   .popup-info {
     .info {
-      height: 386px;
+      min-height: 386px;
       .info-header {
         .info-num {
           @include num(16px);

@@ -101,7 +101,7 @@ function App() {
               infoUnderline={infoUnderline}
             />
 
-            {cards.map((c, idx) => (
+            {cards.slice(cards.length - 1).map((c, idx) => (
               <LastCard
                 setOpenLastCard={setOpenLastCard}
                 lastcardKey={idx}

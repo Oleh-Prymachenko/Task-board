@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./column.scss";
 import columnPointerPassive from "../../../assets/images/pointer-passive.png";
@@ -35,3 +36,9 @@ export const Column = ({
     </div>
   );
 };
+
+Column.propTypes = {
+  columnStorage: PropTypes.number.isRequired,
+};
+
+export default Column;

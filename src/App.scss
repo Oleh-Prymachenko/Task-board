@@ -105,7 +105,7 @@
 
   .scrollbar {
     // Scrollbar from npm perfect-scrollbar //
-    height: 1000px;
+    height: 60vh;
     .ps__rail-y {
       width: 7px;
       background: $white;
@@ -168,9 +168,9 @@
         }
       }
     }
-    .scrollbar {
-      height: 800px;
-    }
+    // .scrollbar {
+    //   height: 800px;
+    // }
   }
 }
 
@@ -214,9 +214,6 @@
           }
         }
       }
-    }
-    .scrollbar {
-      height: 400px;
     }
   }
 }
@@ -262,9 +259,6 @@
         }
       }
     }
-    .scrollbar {
-      height: 300px;
-    }
   }
 }
 
@@ -308,9 +302,6 @@
           }
         }
       }
-    }
-    .scrollbar {
-      height: 200px;
     }
   }
 }

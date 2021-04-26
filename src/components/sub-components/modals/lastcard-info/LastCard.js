@@ -27,7 +27,7 @@ export const LastCard = ({
     ? "popup-lastcard display-block"
     : "popup-lastcard display-none";
   return (
-    <div className={showLastCard} key={lastcardKey}>
+    <div className={showLastCard}>
       {openLastCard && (
         <motion.div
           initial={{ scale: 0 }}

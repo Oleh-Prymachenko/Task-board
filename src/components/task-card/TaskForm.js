@@ -7,11 +7,13 @@ import { motion } from "framer-motion";
 import { Description } from "../sub-components/Description";
 import { CardContainer } from "./card/CardContainer";
 import { getRandomNumber } from "../../helpers/randomNumber";
+// import { SelectAuthor } from "../../components/sub-components/SelectAuthor";
 
-import "./card-modal.scss";
 import john from "../../assets/images/avatar-4.png";
 import david from "../../assets/images/avatar-6.png";
 import anna from "../../assets/images/avatar-3.png";
+
+import "./card-modal.scss";
 
 export const TaskForm = ({
   openTask,
@@ -181,9 +183,9 @@ export const TaskForm = ({
                 <div className="sub-info-form-group">
                   <label htmlFor="cardAuthor">Author</label>
                   <select
+                    value={cardAuthor}
                     className="author-select"
                     required
-                    value={cardAuthor}
                     onChange={(e) => {
                       setCardAuthor(e.target.value);
                     }}

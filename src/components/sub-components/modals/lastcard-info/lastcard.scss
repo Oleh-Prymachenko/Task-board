@@ -6,7 +6,7 @@
     .lastcard {
       @include modal(55%);
       @include flexbox(column, space-evenly, none);
-      height: 314px;
+      min-height: 314px;
       transform: translate(-50%, 50%);
       padding: 1%;
       .lastcard-header {
@@ -27,6 +27,7 @@
           font-weight: bold;
           font-size: 32px;
           color: $black;
+          word-break: break-all;
         }
         .lastcard-avatar {
           @include flexbox(row, none, center);
@@ -86,7 +87,7 @@
 @media (max-width: 1600.98px) {
   .popup-lastcard {
     .lastcard {
-      height: 290px;
+      min-height: 290px;
       .lastcard-header {
         .lastcard-num {
           @include num(15px);
@@ -142,7 +143,7 @@
 @media (max-width: 1300.98px) {
   .popup-lastcard {
     .lastcard {
-      height: 240px;
+      min-height: 240px;
       .lastcard-header {
         .lastcard-num {
           @include num(14px);
@@ -198,7 +199,7 @@
 @media (max-width: 991.98px) {
   .popup-lastcard {
     .lastcard {
-      height: 210px;
+      min-height: 210px;
       .lastcard-header {
         .lastcard-num {
           @include num(13px);
@@ -254,7 +255,7 @@
 @media (max-width: 767.98px) {
   .popup-lastcard {
     .lastcard {
-      height: 190px;
+      min-height: 190px;
       .lastcard-header {
         .lastcard-num {
           @include num(12px);
@@ -314,7 +315,7 @@
       all: unset;
       @include modal(85%);
       @include flexbox(column, none, none);
-      height: 420px;
+      min-height: 420px;
       transform: translate(-50%, 15%);
       padding: 3%;
       .lastcard-header {
@@ -389,7 +390,7 @@
 @media (max-width: 320.98px) {
   .popup-lastcard {
     .lastcard {
-      height: 386px;
+      min-height: 386px;
       .lastcard-header {
         .lastcard-num {
           @include num(16px);

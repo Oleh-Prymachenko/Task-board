@@ -1,6 +1,5 @@
 {
-  "homepage": "http://Oleh-prymachenko.github.io",
-  "name": "my-page",
+  "name": "board",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,10 +10,12 @@
     "node-sass": "^5.0.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
+    "react-beautiful-dnd": "^13.1.0",
     "react-datepicker": "^3.7.0",
     "react-dom": "^17.0.1",
     "react-perfect-scrollbar": "^1.5.8",
     "react-scripts": "4.0.2",
+    "react-select": "^4.3.0",
     "react-time-picker": "^4.2.1",
     "use-local-storage-state": "^9.0.2",
     "web-vitals": "^1.0.1"
