@@ -6,32 +6,29 @@ import DragMove from "../../sub-components/DragMove";
 
 export const ColumnContainer = (props) => {
   const { columnStorage, columnKey, openCards, setOpenCards } = props;
-  const useColumnLocalStoragePosition = createLocalStorageStateHook(
-    `column-position ${columnStorage.props.columnNumer}`,
-    {
-      x: 0,
-      y: 0,
-    }
-  );
+  // const useColumnLocalStoragePosition = createLocalStorageStateHook(
+  //   `column-position ${columnStorage.props.columnNumer}`,
+  //   {
+  //     x: 0,
+  //     y: 0,
+  //   }
+  // );
 
-  const [columnTranslate, setColumnTranslate] = useColumnLocalStoragePosition();
+  // const [columnTranslate, setColumnTranslate] = useColumnLocalStoragePosition();
 
-  const handleDragMove = (e) => {
-    setColumnTranslate({
-      x: columnTranslate.x + e.movementX,
-      y: columnTranslate.y + e.movementY,
-    });
-  };
+  // const handleDragMove = (e) => {
+  //   setColumnTranslate({
+  //     x: columnTranslate.x + e.movementX,
+  //     y: columnTranslate.y + e.movementY,
+  //   });
+  // };
 
   return (
-    <DragMove onDragMove={handleDragMove}>
-      <Column
-        columnStorage={columnStorage}
-        columnKey={columnKey}
-        openCards={openCards}
-        setOpenCards={setOpenCards}
-        columnTranslate={columnTranslate}
-      />
-    </DragMove>
+    <Column
+      columnStorage={columnStorage}
+      columnKey={columnKey}
+      openCards={openCards}
+      setOpenCards={setOpenCards}
+    />
   );
 };

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { createLocalStorageStateHook } from "use-local-storage-state";
+import { Draggable } from "react-beautiful-dnd";
 
+import { v4 as uuidv4 } from "uuid";
 import DragMove from "../../sub-components/DragMove";
 import { Card } from "./Card";
 
@@ -20,21 +22,14 @@ export const CardContainer = ({
   setInfoItalic,
   setInfoUnderline,
 }) => {
-  const useCardLocalStoragePosition = createLocalStorageStateHook(
-    `card-position ${cardStorage.props.cardNumer}`,
-    {
-      x: 0,
-      y: 0,
-    }
-  );
-  const [cardTranslate, setCardTranslate] = useCardLocalStoragePosition();
-
-  const handleDragMove = (e) => {
-    setCardTranslate({
-      x: cardTranslate.x + e.movementX,
-      y: cardTranslate.y + e.movementY,
-    });
-  };
+  // const useCardLocalStoragePosition = createLocalStorageStateHook(
+  //   `card-position ${cardStorage.props.cardNumer}`,
+  //   {
+  //     x: 0,
+  //     y: 0,
+  //   }
+  // );
+  // const [cardTranslate, setCardTranslate] = useCardLocalStoragePosition();
 
   const convertedDate = new Date(cardStorage.props.cardUntilDate);
   const formatUntilDate =
@@ -59,14 +54,22 @@ export const CardContainer = ({
   };
 
   return (
-    <DragMove onDragMove={handleDragMove} className="drag">
-      <Card
-        cardStorage={cardStorage}
-        cardKey={cardKey}
-        cardInfoHandler={cardInfoHandler}
-        cardTranslate={cardTranslate}
-        formatUntilDate={formatUntilDate}
-      />
-    </DragMove>
+    <Draggable draggableId={cardStorage.props.cardId} index={cardKey}>
+      {(provided) => (
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+        >
+          <Card
+            cardStorage={cardStorage}
+            cardKey={cardKey}
+            cardInfoHandler={cardInfoHandler}
+            // cardTranslate={cardTranslate}
+            formatUntilDate={formatUntilDate}
+          />
+        </div>
+      )}
+    </Draggable>
   );
 };

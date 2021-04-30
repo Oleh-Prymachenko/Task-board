@@ -18,6 +18,7 @@
     "react-select": "^4.3.0",
     "react-time-picker": "^4.2.1",
     "use-local-storage-state": "^9.0.2",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

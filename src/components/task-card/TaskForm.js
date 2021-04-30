@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from "react-time-picker";
 import { motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
 
 import { Description } from "../sub-components/Description";
 import { CardContainer } from "./card/CardContainer";
@@ -24,6 +25,8 @@ export const TaskForm = ({
   setCard,
   setOpenCardInfo,
   openCardInfo,
+  setCardId,
+  cardId,
 }) => {
   const curDate = new Date();
   const formatCurrentDate =
@@ -69,6 +72,7 @@ export const TaskForm = ({
         isBold={isBold}
         isItalic={isItalic}
         isUnderline={isUnderline}
+        cardId={cardId}
       />
     );
     setCardProjectName(
@@ -89,6 +93,7 @@ export const TaskForm = ({
     isBold,
     isItalic,
     isUnderline,
+    cardId,
   ]);
 
   const addNewTask = (e) => {
@@ -104,6 +109,7 @@ export const TaskForm = ({
     setIsItalic(false);
     setIsBold(false);
     setIsUnderline(false);
+    setCardId(uuidv4());
   };
 
   const showTaskModal = openTask

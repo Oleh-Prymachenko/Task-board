@@ -10,6 +10,7 @@ export const CreateColumn = ({
   setColumns,
   column,
   setColumn,
+  cards,
 }) => {
   const [columnName, setColumnName] = useState("");
   const [columnNumer, setColumnNumer] = useState(1);
@@ -24,6 +25,7 @@ export const CreateColumn = ({
         columnName={columnName}
         setColumnName={setColumnName}
         columnNumer={columnNumer}
+        cards={cards}
       />
     );
   }, [columnName, setColumnName, setColumn, columnNumer]);

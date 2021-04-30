@@ -10,16 +10,9 @@ export const Column = ({
   columnKey,
   openCards,
   setOpenCards,
-  columnTranslate,
 }) => {
   return (
-    <div
-      className="column"
-      key={columnKey}
-      style={{
-        transform: `translateX(${columnTranslate.x}px) translateY(${columnTranslate.y}px)`,
-      }}
-    >
+    <div className="column" key={columnKey}>
       <div className="column-header">
         <div className="column-name">{columnStorage.props.columnName}</div>
         <button
@@ -35,10 +28,6 @@ export const Column = ({
       <div className="cards"></div>
     </div>
   );
-};
-
-Column.propTypes = {
-  columnStorage: PropTypes.number.isRequired,
 };
 
 export default Column;

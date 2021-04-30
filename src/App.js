@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
+import { v4 as uuidv4 } from "uuid";
 import { TaskForm } from "./components/task-card/TaskForm";
 import { CreateColumn } from "./components/task-column/ColumnForm";
 import { LastCard } from "./components/sub-components/modals/lastcard-info/LastCard";
 import { CardInfo } from "./components/sub-components/modals/card-info/CardInfo";
 import { CardContainer } from "./components/task-card/card/CardContainer";
+import { TodoColumn } from "./TodoColumn";
+import { DoneColumn } from "./DoneColumn";
 
 import "./App.scss";
 import "./components/task-column/column/column.scss";
@@ -49,8 +53,19 @@ function App() {
 
   // State for mobiles //
   const [openCards, setOpenCards] = useState(false);
-  const showCards = openCards ? "display" : "none";
+
   //                  //
+
+  // const [columnId, setColumnId] = useState(uuidv4());
+  const [cardId, setCardId] = useState(uuidv4());
+
+  const columnIdForFitstColumn = uuidv4();
+  const columnIdForSecondColumn = uuidv4();
+
+  useEffect(() => {
+    setCards([...cards]);
+    setColumns([...columns]);
+  }, []);
 
   return (
     <div className="App">
@@ -76,6 +91,8 @@ function App() {
               setInfoBold={setInfoBold}
               setInfoItalic={setInfoItalic}
               setInfoUnderline={setInfoUnderline}
+              cardId={cardId}
+              setCardId={setCardId}
             />
             <CreateColumn
               openColumn={openColumn}
@@ -84,6 +101,7 @@ function App() {
               setColumns={setColumns}
               column={column}
               setColumn={setColumn}
+              cards={cards}
             />
 
             <CardInfo
@@ -132,26 +150,15 @@ function App() {
       <div className="App-main">
         <div className="main">
           <PerfectScrollbar className="scrollbar">
-            <div className="columns">
-              <div className="column">
-                <div className="column-header">
-                  <div className="column-name">TO DO - {cards.length}</div>
-                  <button className="open-cards-for-mobiles-btn">
-                    <img
-                      className="pointer"
-                      alt="pointer"
-                      onClick={() =>
-                        openCards ? setOpenCards(false) : setOpenCards(true)
-                      }
-                      src={openCards ? pointerActive : pointerPassive}
-                    />
-                  </button>
-                </div>
-                <div className={`cards-${showCards}`}>
-                  {cards.map((cardStorage, idx) => (
-                    <CardContainer
-                      cardKey={idx}
-                      cardStorage={cardStorage}
+            <DragDropContext onDragEnd={(result) => console.log(result)}>
+              <div className="columns">
+                <Droppable droppableId={columnIdForFitstColumn}>
+                  {(provided, snapshot) => (
+                    <TodoColumn
+                      provided={provided}
+                      snapshot={snapshot}
+                      openCards={openCards}
+                      setOpenCards={setOpenCards}
                       setOpenCardInfo={setOpenCardInfo}
                       openCardInfo={openCardInfo}
                       setInfoTitle={setInfoTitle}
@@ -164,46 +171,54 @@ function App() {
                       setInfoBold={setInfoBold}
                       setInfoItalic={setInfoItalic}
                       setInfoUnderline={setInfoUnderline}
+                      cards={cards}
+                      cardId={cardId}
                     />
-                  ))}
-                </div>
-              </div>
-              {/* <Column2 /> */}
-              {columns.map((columnStorage, idx) => (
-                <ColumnContainer
-                  columnStorage={columnStorage}
-                  columnKey={idx}
-                  openCards={openCards}
-                  setOpenCards={setOpenCards}
-                />
-              ))}
-              <div className="column">
-                <div className="column-header">
-                  <div className="column-name">DONE - {cards.length}</div>
-                  <button className="open-cards-for-mobiles-btn">
-                    <img
-                      className="pointer"
-                      alt="pointer"
-                      onClick={() =>
-                        openCards ? setOpenCards(false) : setOpenCards(true)
-                      }
-                      src={openCards ? pointerActive : pointerPassive}
+                  )}
+                </Droppable>
+                {columns.map((columnStorage, idx) => (
+                  <ColumnContainer
+                    columnStorage={columnStorage}
+                    columnKey={idx}
+                    openCards={openCards}
+                    setOpenCards={setOpenCards}
+                  />
+                ))}
+                <Droppable droppableId={columnIdForSecondColumn}>
+                  {(provided, snapshot) => (
+                    <DoneColumn
+                      provided={provided}
+                      snapshot={snapshot}
+                      openCards={openCards}
+                      setOpenCards={setOpenCards}
+                      setOpenCardInfo={setOpenCardInfo}
+                      openCardInfo={openCardInfo}
+                      setInfoTitle={setInfoTitle}
+                      setInfoNum={setInfoNum}
+                      setInfoUntilDate={setInfoUntilDate}
+                      setInfoTime={setInfoTime}
+                      setInfoAuthor={setInfoAuthor}
+                      setInfoDescription={setInfoDescription}
+                      setStartDate={setStartDate}
+                      setInfoBold={setInfoBold}
+                      setInfoItalic={setInfoItalic}
+                      setInfoUnderline={setInfoUnderline}
+                      cards={cards}
+                      cardId={cardId}
                     />
-                  </button>
-                </div>
-                <div className="cards"></div>
-
-                <button
-                  className="column-btn-for-mobiles"
-                  onClick={() =>
-                    openColumn ? setOpenColumn(false) : setOpenColumn(true)
-                  }
-                >
-                  Create column
-                </button>
+                  )}
+                </Droppable>
               </div>
-            </div>
+            </DragDropContext>
           </PerfectScrollbar>
+          <button
+            className="column-btn-for-mobiles"
+            onClick={() =>
+              openColumn ? setOpenColumn(false) : setOpenColumn(true)
+            }
+          >
+            Create column
+          </button>
         </div>
       </div>
       <button

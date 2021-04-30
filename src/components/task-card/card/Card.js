@@ -14,9 +14,9 @@ export const Card = ({
     <div
       className="card"
       onDoubleClick={(e) => cardInfoHandler(e)}
-      style={{
-        transform: `TranslateX(${cardTranslate.x}px) TranslateY(${cardTranslate.y}px)`,
-      }}
+      // style={{
+      //   transform: `TranslateX(${cardTranslate.x}px) TranslateY(${cardTranslate.y}px)`,
+      // }}
       key={cardKey}
     >
       <h2 className="card-name">{cardStorage.props.cardTitle}</h2>
